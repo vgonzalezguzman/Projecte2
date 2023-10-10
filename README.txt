@@ -1,0 +1,1 @@
+Aquest projecte és un treball conjunt entre Alejandro Espinoza i Víctor González per al curs de 2n de DAW a l'Institut Cendrassos
