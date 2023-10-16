@@ -4,3 +4,9 @@
     height: 30vh;
     overflow: hidden;
 }
+#mostraCases .portadaCasa img {
+    object-fit: cover;
+    object-position: center;
+    height: 38vh;
+    overflow: hidden;
+}
