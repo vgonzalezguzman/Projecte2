@@ -1,0 +1,15 @@
+#carouselMostrari .carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    height: 30vh;
+    overflow: hidden;
+}
+#mostraCases .portadaCasa img  {
+    object-fit: cover;
+    object-position: center;
+    height: 38vh;
+    overflow: hidden;
+}
+.outlined  {
+    background-color: #D9D9D9;
+}
