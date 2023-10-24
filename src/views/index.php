@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="../../public/css/web.css" rel="stylesheet">
+    <link href="../../css/web.css" rel="stylesheet">
     <title>Document</title>
-    <script src="/public/js/jquery3.7.1.min.js"></script>
+    <script src="../js/jquery3.7.1.min.js"></script>
 </head>
 <body>
-    
-<button id="getDataButton">
-            <p>hola</p>
-        </button>
 
     <div class="dropdown d-flex position-absolute top-0 end-0  d-none d-xl-flex">
         <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
@@ -47,43 +43,7 @@
     </div>
     
     <div id="mostraCases" class="ms-0 d-flex align-items-center row row-cols-xl-3 row-cols-1 row-cols-md-2 flex-lg-row justify-content-center col-12">
-        <div class="outlined d-flex mt-5 col-11 flex-column col border border-1 rounded-4 p-0 bg-secondary bg-opacity-25">
-            <div id="pis1" class="portadaCasa col-12 carousel slide">
-                <div class="carousel-inner rounded-4">
-                    <div class="carousel-item active">
-                    <img src="" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                    <img src="" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                    <img src="" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#pis1" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#pis1" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            <div class="d-flex row p-3">
-                <p id="localitzacio" class="col-12">
-                    C/ Arquitecte Pelai Martínez
-                </p>
-                <p id="superficie" class="col-6">
-                    40 m2
-                </p>
-                <p id="Ocupants" class="col-6">
-                    2 Ocupants
-                </p>
-                <p id="preu" class="col-12">
-                    60€ nit
-                </p>  
-            </div>
-        </div>
+        <?php require"charge-divs.php"; ?>
     </div>
 
     <div id="footer" class="fixed-bottom container d-flex align-items-center justify-content-center col-12">
@@ -101,7 +61,7 @@
         </div>
     </div>
 
-    <script src="/public/js/controller.js"></script>
+    <script src="../js/controller.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>    
 </body>
 </html>
