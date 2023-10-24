@@ -42,4 +42,9 @@ class Container
         return new \Emeset\Request();
     }
 
+    public function images()
+    {
+        $conn = new \Immobiliaria\Connection($this->config[""]);
+    }
+
 }

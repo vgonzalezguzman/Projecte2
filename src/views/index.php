@@ -6,8 +6,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="../../public/css/web.css" rel="stylesheet">
     <title>Document</title>
+    <script src="/public/js/jquery3.7.1.min.js"></script>
 </head>
 <body>
+    
+<button id="getDataButton">
+            <p>hola</p>
+        </button>
 
     <div class="dropdown d-flex position-absolute top-0 end-0  d-none d-xl-flex">
         <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
@@ -22,29 +27,7 @@
       </div>
     </div>
 
-    <div class="d-flex d-none d-sm-flex justify-content-center">
-        <div id="carouselMostrari" class="col-8 carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="./images/alley-1690053_1280.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="./images/greece-2824694_1280.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="./images/palma-596178_1280.jpg" class="d-block w-100" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMostrari" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselMostrari" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
+    <?php require "header.php"; ?>
 
     <div class="container-fluid p5 text-center d-flex justify-content-center">
         <div class="col-xl-4 col-8">
@@ -67,23 +50,23 @@
         <div class="outlined d-flex mt-5 col-11 flex-column col border border-1 rounded-4 p-0 bg-secondary bg-opacity-25">
             <div id="pis1" class="portadaCasa col-12 carousel slide">
                 <div class="carousel-inner rounded-4">
-                  <div class="carousel-item active">
-                    <img src="./images/greece-2824694_1280.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="./images/palma-596178_1280.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="./images/alley-1690053_1280.jpg" class="d-block w-100" alt="...">
-                  </div>
+                    <div class="carousel-item active">
+                    <img src="" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="" class="d-block w-100" alt="...">
+                    </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#pis1" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#pis1" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
                 </button>
             </div>
             <div class="d-flex row p-3">
@@ -118,6 +101,7 @@
         </div>
     </div>
 
+    <script src="/public/js/controller.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>    
 </body>
 </html>

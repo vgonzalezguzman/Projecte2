@@ -4,15 +4,18 @@
  * Aquest fitxer és un exemple de Front Controller, pel qual passen totes les requests.
  */
 
- include "../src/config.php";
+ error_reporting(E_ERROR | E_WARNING | E_PARSE);
+ require "../src/config.php";
+
+ $config = include "../src/config.php";
  include "../src/controllers/ctrlIndex.php";
  include "../src/controllers/ctrlJson.php";
  include "../src/controllers/ctrlLogin.php";
+ include "get.php";
 
 /**
   * Carreguem les classes del Framework Emeset
 */
-  
  include "../src/Emeset/Container.php";
  include "../src/Emeset/Request.php";
  include "../src/Emeset/Response.php";
