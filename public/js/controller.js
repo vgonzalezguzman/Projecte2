@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function fetchData() {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -15,7 +14,6 @@ function fetchData() {
 
         // Trigger the fetchData function when the body loads
         window.onload = fetchData;
-=======
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -41,4 +39,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
->>>>>>> 0541d0779cc5a5575b704b962a717b570f7d2064
