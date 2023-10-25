@@ -1,7 +1,7 @@
 <?php 
 try {
     if (empty($_GET["lang"])) {         // NO ES NECESARIO, PERO OBLIGA A QUE AL MENOS PASES UN PARAMETRO LLAMADO LANG
-        $lang = ["apartament"];  
+        echo("");
     } else {
         $lang = $_GET["lang"];
     }
