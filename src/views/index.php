@@ -7,11 +7,17 @@
 <<<<<<< HEAD
     <link href="../../css/web.css" rel="stylesheet">
     <title>Document</title>
+    <script src="../js/jquery3.7.1.min.js"></script>
+=======
+<<<<<<< HEAD
+    <link href="../../css/web.css" rel="stylesheet">
+    <title>Document</title>
 =======
     <link href="../css/web.css" rel="stylesheet">
     <title>a</title>
     <script src="../public/js/jquery3.7.1.min.js"></script>
 >>>>>>> emma
+>>>>>>> 0541d0779cc5a5575b704b962a717b570f7d2064
 </head>
 <body>
 
@@ -81,6 +87,9 @@
     
     <div id="mostraCases" class="ms-0 d-flex align-items-center row row-cols-xl-3 row-cols-1 row-cols-md-2 flex-lg-row justify-content-center col-12">
 <<<<<<< HEAD
+        <?php require"charge-divs.php"; ?>
+=======
+<<<<<<< HEAD
         <div class="outlined d-flex mt-5 col-11 flex-column col border border-1 rounded-4 p-0 bg-secondary bg-opacity-25">
             <div id="pis1" class="portadaCasa col-12 carousel slide">
                 <div class="carousel-inner rounded-4">
@@ -118,6 +127,7 @@
                 </p>  
             </div>
         </div>
+>>>>>>> 0541d0779cc5a5575b704b962a717b570f7d2064
     </div>
   
     <div class="bottomregister">
@@ -281,6 +291,10 @@
           </div>
         </div>
     </div>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 0541d0779cc5a5575b704b962a717b570f7d2064
     <script src="../js/controller.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>    
 >>>>>>> emma

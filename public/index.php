@@ -21,8 +21,12 @@
  include "../src/controllers/ctrlIndex.php";
  include "../src/controllers/ctrlJson.php";
  include "../src/controllers/ctrlLogin.php";
+<<<<<<< HEAD
+ include "../src/controllers/get.php";
+=======
  include "get.php";
 >>>>>>> emma
+>>>>>>> 0541d0779cc5a5575b704b962a717b570f7d2064
 
 /**
   * Carreguem les classes del Framework Emeset
