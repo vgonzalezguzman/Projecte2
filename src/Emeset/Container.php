@@ -42,9 +42,30 @@ class Container
         return new \Emeset\Request();
     }
 
+<<<<<<< HEAD
+    public function tasks()
+    {
+        return new \Daw\Tasks(
+            $this->config["db"]["user"],
+            $this->config["db"]["pass"],
+            $this->config["db"]["db"], 
+            $this->config["db"]["host"]
+        );
+    }
+
+    public function users()
+    {
+        return new \Daw\Users(
+            $this->config["db"]["user"],
+            $this->config["db"]["pass"],
+            $this->config["db"]["db"], 
+            $this->config["db"]["host"]
+        );
+=======
     public function images()
     {
         $conn = new \Immobiliaria\Connection($this->config[""]);
+>>>>>>> emma
     }
 
 }
