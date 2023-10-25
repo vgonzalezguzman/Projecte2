@@ -4,6 +4,7 @@
  * Aquest fitxer és un exemple de Front Controller, pel qual passen totes les requests.
  */
 
+<<<<<<< HEAD
  include "../src/config.php";
  include "../src/controllers/ctrlIndex.php";
  include "../src/controllers/ctrlJson.php";
@@ -12,11 +13,24 @@
  include "../src/controllers/ctrlDoLogin.php";
  include "../src/controllers/ctrlLogin.php";
 
+=======
+ error_reporting(E_ERROR | E_WARNING | E_PARSE);
+ require "../src/config.php";
+
+ $config = include "../src/config.php";
+ include "../src/controllers/ctrlIndex.php";
+ include "../src/controllers/ctrlJson.php";
+ include "../src/controllers/ctrlLogin.php";
+ include "get.php";
+>>>>>>> emma
 
 /**
   * Carreguem les classes del Framework Emeset
 */
+<<<<<<< HEAD
   
+=======
+>>>>>>> emma
  include "../src/Emeset/Container.php";
  include "../src/Emeset/Request.php";
  include "../src/Emeset/Response.php";
@@ -38,6 +52,7 @@
  
  /* Front Controller, aquí es decideix quina acció s'executa */
  if($r == "") {
+<<<<<<< HEAD
      $response = ctrlIndex($request, $response, $container);
  } elseif($r == "json") {
   $response = ctrlJson($request, $response, $container);
@@ -56,6 +71,15 @@ elseif($r == "dologin") {
 
 else {
      echo "No existeix la ruta";
+=======
+    $response = ctrlIndex($request, $response, $container);
+ } elseif($r == "login") {
+    $response = ctrlLogin($request, $response, $container);
+ } elseif($r == "json") {
+    $response = ctrlJson($request, $response, $container);
+} else {
+    echo "No existeix la ruta";
+>>>>>>> emma
  }
 
  /* Enviem la resposta al client. */

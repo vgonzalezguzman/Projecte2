@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 
@@ -55,3 +56,8 @@
 </body>
 
 </html>
+=======
+<?php 
+    echo "Pàgina de login";
+?>
+>>>>>>> emma

@@ -42,6 +42,7 @@ class Container
         return new \Emeset\Request();
     }
 
+<<<<<<< HEAD
     public function tasks()
     {
         return new \Daw\Tasks(
@@ -60,6 +61,11 @@ class Container
             $this->config["db"]["db"], 
             $this->config["db"]["host"]
         );
+=======
+    public function images()
+    {
+        $conn = new \Immobiliaria\Connection($this->config[""]);
+>>>>>>> emma
     }
 
 }
