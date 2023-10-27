@@ -44,7 +44,7 @@ body{
 /* FORMULARIO LOGIN */
 .card {
   border: none;
-  height: 320px;
+  border-radius: 10px;
 }
 
 .forms-inputs {
@@ -153,6 +153,9 @@ width: 150%;
 margin-right: 70%;
 }
 
+.modal-content{
+  margin-left: -130px;
+}
 
 
 .custom-dialog .modal-footer {
@@ -169,7 +172,7 @@ justify-content: center;}
 
 .button {
   --width: 100px;
-  --height: 35px;
+  --height: 47px;
   --tooltip-height: 35px;
   --tooltip-width: 90px;
   --gap-between-tooltip-to-button: 18px;
