@@ -69,4 +69,20 @@ class Users {
         ]);
    
     }
+
+    public function addapartament($title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion) {
+        // Si el título no está registrado, procede con la inserción
+        $insertStmt = $this->sql->prepare('INSERT INTO apartament (Titol, Adr_Postal, Descripcio, Metres_Cuadrats, N_Habitacions, Preu_TBaixa, Preu_Talt, Dies_Cancelacio) VALUES (:title, :postal, :descripcion, :metros, :habitaciones, :TBaja, :TALT, :cancelacion)');
+        $result = $insertStmt->execute([
+            ':title' => $title,
+            ':postal' => $postal,
+            ':descripcion' => $descripcion,
+            ':metros' => $metros,
+            ':habitaciones' => $habitaciones,
+            ':TBaja' => $TBaja,
+            ':TALT' => $TALT,
+            ':cancelacion' => $cancelacion
+        ]);
+    }    
+
 }

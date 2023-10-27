@@ -12,6 +12,10 @@
  include "../src/controllers/ctrlDoLogin.php";
  include "../src/controllers/ctrlLogin.php";
  include "../src/controllers/ctrlSelect.php";
+ include "../src/controllers/ctrlApartament.php";
+ include "../src/controllers/ctrlDoApartament.php";
+
+
 
 
 /**
@@ -53,6 +57,12 @@ elseif($r == "login") {
 }
 elseif($r == "dologin") {
   $response = ctrlDoLogin($request, $response, $container);
+}
+elseif($r == "apartament") {
+  $response = ctrlApartamentView($request, $response, $container);
+}
+elseif($r == "doaddapartament") {
+  $response = ctrlDoApartament($request, $response, $container);
 }
 
 else {
