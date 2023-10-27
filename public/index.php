@@ -11,6 +11,7 @@
  include "../src/controllers/ctrlRegister.php";
  include "../src/controllers/ctrlDoLogin.php";
  include "../src/controllers/ctrlLogin.php";
+ include "../src/controllers/ctrlSelect.php";
 
 
 /**
