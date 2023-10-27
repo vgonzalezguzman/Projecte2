@@ -202,7 +202,7 @@
               
             </div>
             <button  style="height: 50px;">
-                      <p href="index.php?r=reserva" >Reservar</p>
+                      <a href="index.php?r=reserva" >Reserva</a>
                     </button>
         </div>
     </div>

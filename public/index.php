@@ -55,7 +55,7 @@ elseif($r == "dologin") {
   $response = ctrlDoLogin($request, $response, $container);
 }
  elseif($r == "reserva") {
-  $response = ctrlReservaView($request, $response, $container);
+  $response = ctrlReserva($request, $response, $container);
 }
 else {
      echo "No existeix la ruta";
