@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="../../css/web.css" rel="stylesheet">
-    <script src="app.js" defer></script>
+
+    <script src="../../js/app.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -179,7 +180,11 @@
                                 <label for="end">Hasta:</label>
                                 <input type="date" id="end">
                             </div>
+
                             <button class="fechas">Buscar</button>
+
+                            <label for="guests">Número de personas:</label>
+                            <input type="number" id="guests" name="guests" min="1" max="6" placeholder="Número de personas">
                         </div>
                     </div>
                  
@@ -189,9 +194,11 @@
                             <div class="button-wrapper">
                                 <div class="text">Reservar</div>
                                     <span class="icon">
+                                    <a href="index.php?r=reserva" >
                                         <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
                                         </svg>
+                                        </a>
                                     </span>
                                 </div>
                             </div>
@@ -199,17 +206,22 @@
                     </div>
                   
                 </div>
-              
+             
             </div>
-            <button  style="height: 50px;">
-                      <a href="index.php?r=reserva" >Reserva</a>
-                    </button>
         </div>
     </div>
 
+    <div class="bottomapartament">
+      <form action="index.php" method="post">
+          <input type="hidden" name="r" value="apartament">
+          <button type="submit" class="btn btn-primary">Añadir apartamento</button>
+      </form>
+    </div>
+    <div id="map"></div>
 
-    <script src="app.js"></script>
+
+    <script src="../../js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> 
-       
+  
 </body>
 </html>
