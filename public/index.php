@@ -63,11 +63,17 @@ elseif($r == "apartament") {
 }
 elseif($r == "doaddapartament") {
   $response = ctrlDoApartament($request, $response, $container);
-}
+}/*
+elseif($r == "carregaJSON") {
+  $response = ctrlSelect($response);
+  //$response = ctrlSelect($response->$values);
+}*/
 
 else {
      echo "No existeix la ruta";
  }
 
+
  /* Enviem la resposta al client. */
+
  $response->response();

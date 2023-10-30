@@ -1,18 +1,20 @@
-<?php 
-try {   
-    echo "<script>console.log('carrega');</script>"; 
-    if (empty($_GET["lang"])) {
-        return;
+<?php
+header("Access-Control-Allow-Origin: http://localhost:4200");
+$lang = "apartament";
+$bd = include_once "../src/config.php";
+
+if ($bd) {
+    $sentencia = $bd->prepare("SELECT * FROM {$lang}");
+    $sentencia->execute();
+
+    $result = $sentencia->fetchObject();
+
+    if ($result) {
+        echo json_encode($result);
     } else {
-        echo "<script>console.log('lang selected 1');</script>"; 
-        $bd = include "../src/config.php";
-        $lang = $_GET["lang"];
-        $sentencia = $bd->prepare("SELECT * FROM " . $lang[0]);
-        $sentencia->execute();
-        $langData = $sentencia->fetchObject();
-        echo json_encode($langData);
+        echo json_encode(["error" => "No data found"]);
     }
-} catch (PDOException $e) {
-    echo "<script>console.log('error');</script>"; 
-    echo "Database Error: " . $e->getMessage();
+} else {
+    echo json_encode(["error" => "Database connection failed"]);
 }
+?>
