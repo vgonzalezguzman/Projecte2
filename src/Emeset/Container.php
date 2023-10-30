@@ -30,6 +30,9 @@ class Container
     public function __construct($config)
     {
         $this->config = $config;
+        //$conn = $this->dbSQLite();
+        $conn = $this->dbPDO();
+        $this->sql = $conn->getConnection();
     }
 
     public function response()
@@ -42,24 +45,19 @@ class Container
         return new \Emeset\Request();
     }
 
-    public function tasks()
+    public function dbPDO()
     {
-        return new \Daw\Tasks(
-            $this->config["db"]["user"],
-            $this->config["db"]["pass"],
-            $this->config["db"]["db"], 
+        return new \Daw\DbPDO(
+            $this->config["db"]["user"], 
+            $this->config["db"]["pass"], 
+            $this->config["db"]["dbname"], 
             $this->config["db"]["host"]
         );
     }
-
-    public function users()
+    
+    public function apartaments()
     {
-        return new \Daw\Users(
-            $this->config["db"]["user"],
-            $this->config["db"]["pass"],
-            $this->config["db"]["db"], 
-            $this->config["db"]["host"]
-        );
+        return new \Daw\Apartaments($this->sql);
     }
 
 }

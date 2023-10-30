@@ -5,17 +5,17 @@
  *
  * @author: Dani Prados dprados@cendrassos.net
  *
- * Objecte que encapsula la resposta.
+ * Objecte que encapsula la response.
  **/
 
 namespace Emeset;
 
 /**
- * Response: Objecte que encapsula la resposta.
+ * Response: Objecte que encapsula la response.
  *
  * @author: Dani Prados dprados@cendrassos.net
  *
- * Per guarda tota la informació de la resposta.
+ * Per guarda tota la informació de la response.
  **/
 class Response
 {
@@ -28,7 +28,7 @@ class Response
     public $json = false;
 
     /**
-     * __construct:  Té tota la informació per crear la resposta
+     * __construct:  Té tota la informació per crear la response
      *
      * @param $path string path fins a la carpeta de plantilles.
      **/
@@ -80,7 +80,7 @@ class Response
     }
 
     /**
-     * setHeader Afegeix una capçalera http a la resposta
+     * setHeader Afegeix una capçalera http a la response
      *
      * @param  string $header capçalera http
      * @return void
@@ -91,7 +91,7 @@ class Response
     }
 
     /**
-     * redirect.  Defineix la resposta com una redirecció. (accepta els mateixos paràmetres que header)
+     * redirect.  Defineix la response com una redirecció. (accepta els mateixos paràmetres que header)
      *
      * @param  string $header capçalera http amb la
      *                        redirecció
@@ -104,7 +104,7 @@ class Response
     }
 
     /**
-     * setTemplate defineix quina plantilla utilitzarem per la resposta.
+     * setTemplate defineix quina plantilla utilitzarem per la response.
      *
      * @param  string $p nom de la plantilla
      * @return void
@@ -115,7 +115,7 @@ class Response
     }
 
     /**
-     * setJson força que la resposta sigui en format json.
+     * setJson força que la response sigui en format json.
      *
      * @return void
      */
@@ -125,7 +125,7 @@ class Response
     }
 
     /**
-     * Genera la resposta HTTP
+     * Genera la response HTTP
      *
      * @return void
      */

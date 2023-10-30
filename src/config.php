@@ -1,30 +1,18 @@
 <?php
 
-/** 
- * Fitxer de configuració de l'aplicació.
- * */ 
+$config = array();
 
- $config = [
-    "db" => [
-        "user" => "root",
-        "pass" => "",
-        "db" => "projecte_2",
-        "host" => "localhost"
-    ],
-];
+/* configuració de connexió a la base dades */
+$config["db"] = array();
+$config["db"]["user"] = 'root';
+$config["db"]["pass"] = '';
+$config["db"]["dbname"] = 'projecte_2';
+$config["db"]["host"] = 'localhost';
 
-try {
-    $db = new PDO(
-        'mysql:host=' . $config['db']['host'] . ';dbname=' . $config['db']['db'] . ';charset=utf8',
-        $config['db']['user'],
-        $config['db']['pass']
-    );    // OJO CON EL PUERTO!! POR DEFAULT ES 3360
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (Exception $e) {
-    echo "Ocurrió algo con la base de datos: " . $e->getMessage();
-}
-
-include "../src/model/Users.php";
+require_once "../src/Emeset/Request.php";
+require_once "../src/Emeset/Response.php";
+require_once "../src/Emeset/Container.php";
 
 
-return $db;
+require_once "../src/model/DbPDO.php";
+require_once "../src/model/modelApartament.php";
