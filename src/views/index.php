@@ -235,7 +235,7 @@
           <button type="submit" class="btn btn-primary">Añadir apartamento</button>
       </form>
     </div>
-    <div id="map"></div>
+    
 
 
     <script src="../../js/app.js"></script>
