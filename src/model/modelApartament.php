@@ -1,52 +1,45 @@
 <?php
 
-/**
- * Exemple per a M07.
- *
- * @author: Dani Prados dprados@cendrassos.net
- *
- * Model les imatges.
- **/
-
 namespace Daw;
 
-/**
- * Imatges
- */
 class Apartaments
 {
+    public $sql;
 
-    private $sql;
-
-    /**
-     * Constructor de la classe imatges amb PDO
-     *
-     * @param array $config
-     */
     public function __construct($sql)
     {
         $this->sql = $sql;
     }
 
-    /**
-     * llistat de les imatges
-     *
-     * @return array d'imatges amb ["title", "url"]
-     */
+    public function get($id)
+    {
+        $query = 'select * from apartament WHERE id = :id;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':id' => $id]);
+
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            die("Error. {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
     public function all()
     {
         $query = "select * from apartament;";
-        $images = array();
-        foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $image) {
-            $images[$image["id"]] = $image;
+        $apartments = array();
+        foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $apartment) {
+            $apartments[$apartment["id"]] = $apartment;
         }
 
         if ($this->sql->errorCode() !== '00000') {
             $err = $this->sql->errorInfo();
             $code = $this->sql->errorCode();
-            die("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+            die("Error. {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
-        //print_r($images);
-        return $images;
+
+        return $apartments;
     }
 }

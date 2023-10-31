@@ -4,7 +4,10 @@ function ctrlIndex($request, $response, $container){
 
     $name = $request->get(INPUT_GET, "name");
 
-    $response->set("name", $name);
+    $apartaments = $request->get(INPUT_GET, "apartaments");
+    var_dump($apartaments);
+
+    //$apartamentList = $images->all();
 
     $response->setTemplate("index.php");
 

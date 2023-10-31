@@ -1,9 +1,4 @@
-<?php
 
-// Create an instance of the Apartaments class and call the getAll method.
-$apartaments = new Daw\Apartaments($sql);
-$allApartaments = $apartaments->all();
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -101,7 +96,7 @@ $allApartaments = $apartaments->all();
                 <div class="card-body"  data-bs-toggle="modal" data-bs-target="#modalExample" >
                     <div class="d-flex row p-3">
                         <p id="localitzacio" class="col-12">
-                        <?php echo $apartament['Titol']; ?>
+                            C/ Arquitecte Pelai Martínez
                         </p>
                         <p id="superficie" class="col-6">
                             40 m2
