@@ -414,13 +414,15 @@ input:not(:placeholder-shown) ~ .reset {
 }
 
 
-.btn-secondary{
+#dropdown_menu{
 
   border: none;
   cursor: pointer;
   border-radius: 5px;
   background-color: transparent;
   margin-left: 10px;
+  height: 50px;
+  padding: 0;
 }
 
 .btn-secondary:hover{
@@ -444,8 +446,7 @@ input:not(:placeholder-shown) ~ .reset {
 
 
 .btn{
-  height: 50px;
- padding: 0;
+
  
 }
 
@@ -456,8 +457,8 @@ input:not(:placeholder-shown) ~ .reset {
 
 .bar1, .bar2, .bar3 {
   width: 35px;
-  height: 5px;
+  height: 4px;
   background-color: #787878;
-  margin: 6px 0;
+  margin: 5px 0;
   transition: 0.4s;
 }
