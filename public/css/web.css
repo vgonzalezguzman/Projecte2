@@ -327,4 +327,137 @@ margin-left: 45px;
 }
 
 
-#map { height: 180px; }
+/* From uiverse.io by @satyamchaudharydev */
+/* removing default style of button */
+
+.form button {
+  border: none;
+  background: none;
+  color: #8b8ba7;
+}
+/* styling of whole input container */
+.form {
+  max-width: 500px;
+  --timing: 0.3s;
+  --width-of-input: 500px;
+  --height-of-input: 40px;
+  --border-height: 1px;
+  --input-bg: #fff;
+  --border-color: #5f5952;
+  --border-radius: 30px;
+  --after-border-radius: 1px;
+  position: relative;
+  width: var(--width-of-input);
+  height: var(--height-of-input);
+  display: flex;
+  align-items: center;
+  padding-inline: 0.8em;
+  border-radius: var(--border-radius);
+  transition: border-radius 0.5s ease;
+  background: var(--input-bg,#fff);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+/* styling of Input */
+.input {
+  font-size: 0.9rem;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+}
+/* styling of animated border */
+.form:before {
+  content: "";
+  position: absolute;
+  background: var(--border-color);
+  transform: scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: var(--border-height);
+  left: 0;
+  bottom: 0;
+  border-radius: 1px;
+  transition: transform var(--timing) ease;
+}
+/* Hover on Input */
+.form:focus-within {
+  border-radius: var(--after-border-radius);
+}
+
+input:focus {
+  outline: none;
+}
+/* here is code of animated border */
+.form:focus-within:before {
+  transform: scale(1);
+}
+/* styling of close button */
+/* == you can click the close button to remove text == */
+.reset {
+  border: none;
+  background: none;
+  opacity: 0;
+  visibility: hidden;
+}
+/* close button shown when typing */
+input:not(:placeholder-shown) ~ .reset {
+  opacity: 1;
+  visibility: visible;
+}
+/* sizing svg icons */
+.form svg {
+  width: 17px;
+  height: 17px;
+  margin-bottom: 2px;
+}
+
+
+.btn-secondary{
+
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: transparent;
+  margin-left: 10px;
+}
+
+.btn-secondary:hover{
+  background-color: rgb(255, 255, 255);
+  transition: all .3s ease-in-out;
+ 
+}
+
+
+
+.btn-secondary:focus{
+    background-color: white;
+ 
+}
+
+.btn-secondary:active{
+    background-color: white;
+ 
+}
+
+
+
+.btn{
+  height: 50px;
+ padding: 0;
+ 
+}
+
+.container_menu {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #787878;
+  margin: 6px 0;
+  transition: 0.4s;
+}

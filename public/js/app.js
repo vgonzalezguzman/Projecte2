@@ -39,3 +39,4 @@ window.addEventListener("scroll", function () {
 
     lastScrollTop = scrollTop;
 });
+
