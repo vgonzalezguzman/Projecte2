@@ -26,6 +26,7 @@
                 } else {
                     // Mostrar botones si has iniciado sesion
                     echo '<li><a class="dropdown-item" href="index.php?r=apartament">Afegir departament</a></li>';
+                    echo '<li><a class="dropdown-item" href="index.php?r=dades">Dades</a></li>'; 
                     echo '<li><a class="dropdown-item" href="index.php?r=dologout">Tancar sessió</a></li>';
                 }
             ?>

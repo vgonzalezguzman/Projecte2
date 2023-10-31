@@ -14,6 +14,8 @@
  include "../src/controllers/ctrlApartament.php";
  include "../src/controllers/ctrlDoApartament.php";
  include "../src/controllers/ctrlDoLogout.php";
+ include "../src/controllers/ctrlDades.php";
+
 
 
  include "../src/middleware/isLogged.php";
@@ -65,6 +67,9 @@ elseif($r == "apartament") {
 }
 elseif($r == "doaddapartament") {
   $response = isLogged ($request, $response, $container, "ctrlDoApartament");
+}
+elseif($r == "dades") {
+  $response = isLogged ($request, $response, $container, "ctrlDadesView");
 }
 
 else {
