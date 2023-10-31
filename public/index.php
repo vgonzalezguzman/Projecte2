@@ -14,8 +14,7 @@
  include "../src/controllers/ctrlApartament.php";
  include "../src/controllers/ctrlDoApartament.php";
  include "../src/controllers/ctrlDoLogout.php";
-
-
+ include "../src/controllers/ctrlReserva.php";
  include "../src/middleware/isLogged.php";
 /**
   * Carreguem les classes del Framework Emeset
@@ -65,6 +64,9 @@ elseif($r == "apartament") {
 }
 elseif($r == "doaddapartament") {
   $response = isLogged ($request, $response, $container, "ctrlDoApartament");
+}
+elseif($r == "reserva") {
+  $response = ctrlReservaView($request, $response, $container);
 }
 
 else {
