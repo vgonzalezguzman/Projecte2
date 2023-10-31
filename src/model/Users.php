@@ -6,14 +6,8 @@ class Users {
 
     public $sql;
 
-    public function __construct($user, $pass, $db, $host){
-
-        $dsn = "mysql:dbname={$db};host={$host}";
-        try {
-            $this->sql = new \PDO($dsn, $user, $pass);
-        } catch (\PDOException $e) {
-            die('Ha fallat la connexió: ' . $e->getMessage());
-        }
+    public function __construct($sql){
+        $this->sql = $sql;
     }
 
     public function getAll(){
@@ -32,7 +26,7 @@ class Users {
     // }
 
     public function login($email, $pass) {
-        $stm = $this->sql->prepare('SELECT Email, pass FROM usuari WHERE Email = :Email;');
+        $stm = $this->sql->prepare('SELECT ID_Usuari , Email, Rol, pass FROM usuari WHERE Email = :Email;');
         $stm->execute([':Email' => $email]);
         $result = $stm->fetch(\PDO::FETCH_ASSOC);
     
@@ -69,20 +63,6 @@ class Users {
         ]);
    
     }
-
-    public function addapartament($title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion) {
-        // Si el título no está registrado, procede con la inserción
-        $insertStmt = $this->sql->prepare('INSERT INTO apartament (Titol, Adr_Postal, Descripcio, Metres_Cuadrats, N_Habitacions, Preu_TBaixa, Preu_Talt, Dies_Cancelacio) VALUES (:title, :postal, :descripcion, :metros, :habitaciones, :TBaja, :TALT, :cancelacion)');
-        $result = $insertStmt->execute([
-            ':title' => $title,
-            ':postal' => $postal,
-            ':descripcion' => $descripcion,
-            ':metros' => $metros,
-            ':habitaciones' => $habitaciones,
-            ':TBaja' => $TBaja,
-            ':TALT' => $TALT,
-            ':cancelacion' => $cancelacion
-        ]);
-    }    
+ 
 
 }

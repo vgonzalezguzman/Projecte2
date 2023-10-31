@@ -13,9 +13,11 @@ function ctrlDoApartament($request, $response, $container){
     $TALT = $request->get(INPUT_POST, "TALT");
     $cancelacion = $request->get(INPUT_POST, "cancelacion");
 
-    $userModel = $container->Users();
+    $userModel = $container->Apartaments();
 
-    $userModel = $userModel->addapartament($title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion);
+    $ID_Usuari = $_SESSION["user"]["ID_Usuari"];
+
+    $userModel = $userModel->addapartament($title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $ID_Usuari);
     if ($userModel) {        
         $response->redirect("location: index.php");
     } else {

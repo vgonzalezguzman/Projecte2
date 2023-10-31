@@ -18,8 +18,17 @@
             </svg>
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="index.php?r=login">Inicia sessió</a></li>
-          <li><a class="dropdown-item" href="index.php?r=register">Registra't</a></li>
+            <?php
+                if (!$logged) {
+                    // Mostrar botones si no has inicado sesion
+                    echo '<li><a class="dropdown-item" href="index.php?r=login">Inicia sessió</a></li>';
+                    echo '<li><a class="dropdown-item" href="index.php?r=register">Registra\'t</a></li>';
+                } else {
+                    // Mostrar botones si has iniciado sesion
+                    echo '<li><a class="dropdown-item" href="index.php?r=apartament">Afegir departament</a></li>';
+                    echo '<li><a class="dropdown-item" href="index.php?r=dologout">Tancar sessió</a></li>';
+                }
+            ?>
         </ul>
       </div>
     </div>
@@ -207,12 +216,7 @@
         </div>
     </div>
 
-    <div class="bottomapartament">
-      <form action="index.php" method="post">
-          <input type="hidden" name="r" value="apartament">
-          <button type="submit" class="btn btn-primary">Añadir apartamento</button>
-      </form>
-    </div>
+    
 
 
     <script src="app.js"></script>
