@@ -13,10 +13,10 @@
  include "../src/controllers/ctrlLogin.php";
  include "../src/controllers/ctrlApartament.php";
  include "../src/controllers/ctrlDoApartament.php";
+ include "../src/controllers/ctrlDoLogout.php";
 
 
-
-
+ include "../src/middleware/isLogged.php";
 /**
   * Carreguem les classes del Framework Emeset
 */
@@ -41,9 +41,9 @@
  }
  
  /* Front Controller, aquí es decideix quina acció s'executa */
- if($r == "") {
+if($r == "") {
      $response = ctrlIndex($request, $response, $container);
- } elseif($r == "json") {
+} elseif($r == "json") {
   $response = ctrlJson($request, $response, $container);
 }
 elseif($r == "register") {
@@ -57,11 +57,14 @@ elseif($r == "login") {
 elseif($r == "dologin") {
   $response = ctrlDoLogin($request, $response, $container);
 }
+elseif($r == "dologout") {
+  $response = ctrlDoLogout($request, $response, $container);
+}
 elseif($r == "apartament") {
-  $response = ctrlApartamentView($request, $response, $container);
+  $response = isLogged ($request, $response, $container, "ctrlApartamentView");
 }
 elseif($r == "doaddapartament") {
-  $response = ctrlDoApartament($request, $response, $container);
+  $response = isLogged ($request, $response, $container, "ctrlDoApartament");
 }
 
 else {

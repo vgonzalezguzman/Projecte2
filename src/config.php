@@ -14,3 +14,5 @@
 ];
 
 include "../src/model/Users.php";
+include "../src/model/Apartament.php";
+include "../src/model/Db.php";
