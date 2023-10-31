@@ -1,9 +1,4 @@
-<?php
 
-// Create an instance of the Apartaments class and call the getAll method.
-$apartaments = new Daw\Apartaments($sql);
-$allApartaments = $apartaments->all();
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,8 +27,11 @@ $allApartaments = $apartaments->all();
         </ul>
       </div>
     </div>
-
-    <div class="d-flex d-none d-sm-flex justify-content-center">
+<?php foreach ($apartaments as $apartament) {
+    echo $apartament['Titol'];
+    echo "hola";
+} ?>
+    <!-- <div class="d-flex d-none d-sm-flex justify-content-center">
         <div id="carouselMostrari" class="col-8 carousel slide">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -55,9 +53,9 @@ $allApartaments = $apartaments->all();
               <span class="visually-hidden">Next</span>
             </button>
         </div>
-    </div>
+    </div> -->
 
-    <div class="container-fluid p5 text-center d-flex justify-content-center">
+    <!-- <div class="container-fluid p5 text-center d-flex justify-content-center">
         <div class="col-xl-4 col-8">
             <form id="searchBar">
                 <div class="input-group">
@@ -72,7 +70,7 @@ $allApartaments = $apartaments->all();
                 </div>
               </form>
         </div>
-    </div>
+    </div> -->
 
     <div id="mostraCases" class="ms-0 d-flex align-items-center row row-cols-xl-3 row-cols-1 row-cols-md-2 flex-lg-row justify-content-center col-12">
         <div class=" d-flex mt-5 flex-column col  rounded-4 p-0 align-items-center justify-content-center" >

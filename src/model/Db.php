@@ -2,7 +2,7 @@
 
 namespace Daw;
 
-class DbPDO {
+class Db {
 
     public $sql;
 

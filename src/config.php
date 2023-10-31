@@ -6,13 +6,13 @@ $config = array();
 $config["db"] = array();
 $config["db"]["user"] = 'root';
 $config["db"]["pass"] = '';
-$config["db"]["dbname"] = 'projecte_2';
+$config["db"]["dbname"] = 'projecte2';
 $config["db"]["host"] = 'localhost';
 
-require_once "../src/Emeset/Request.php";
-require_once "../src/Emeset/Response.php";
-require_once "../src/Emeset/Container.php";
 
+include "../src/Emeset/Container.php";
+include "../src/Emeset/Request.php";
+include "../src/Emeset/Response.php";
 
-require_once "../src/model/DbPDO.php";
-require_once "../src/model/modelApartament.php";
+include "../src/model/Db.php";
+include "../src/model/Users.php";
