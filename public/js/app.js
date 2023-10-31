@@ -22,3 +22,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+let lastScrollTop = 0;
+        
+// Función para manejar el evento de scroll
+window.addEventListener("scroll", function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // El usuario está desplazándose hacia abajo, oculta el elemento
+        document.querySelector(".dropdown").classList.add("hidden");
+    } else {
+        // El usuario está desplazándose hacia arriba, muestra el elemento
+        document.querySelector(".dropdown").classList.remove("hidden");
+    }
+
+    lastScrollTop = scrollTop;
+});
+
