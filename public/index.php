@@ -14,8 +14,11 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
  include "../src/controllers/ctrlLogin.php";
  include "../src/controllers/ctrlApartament.php";
  include "../src/controllers/ctrlDoApartament.php";
+ include "../src/controllers/showApartaments.php";
+ include "../src/model/Apartaments.php"; 
  
  require "../src/middleware/middleAdmin.php";
+
 
  /* 
   * Aquesta és la part que fa que funcioni el Front Controller.
@@ -28,6 +31,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
     $r = $_REQUEST["r"];
  }
  
+
 
  $container = new Emeset\Container($config);
  $response = $container->response();
