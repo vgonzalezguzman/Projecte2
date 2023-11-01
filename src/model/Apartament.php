@@ -13,15 +13,10 @@ class Apartaments {
 
     public function getApartamentos()
     {
-        $apartaments = array();
-        $query = "SELECT * FROM apartament";
-        $stm = $this->sql->prepare($query);
+        $stm = $this->sql->prepare("SELECT * FROM apartament;");
         $stm->execute();
-
-        while ($apartament = $stm->fetch(\PDO::FETCH_ASSOC)) {
-            $apartaments[] = $apartament;
-        }
-        return $apartaments;
+        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
     }
 
     public function addapartament($title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion ,$ID_Usuari) {

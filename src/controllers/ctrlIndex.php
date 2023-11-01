@@ -7,12 +7,11 @@ function ctrlIndex($request, $response, $container){
     $response->set("name", $name);
 
 
-    $apartament = $container->apartaments();
-    $apartaments = $apartament->getApartamentos();
-    //die(var_dump($apartament));
-    $response->set("apartaments",$apartaments);
-    //$error = $request->get("SESSION","error");
-    //$response->set("error",$error);
+    $apartamentModel = $container->apartaments();
+    $apartamentData = $apartamentModel->getApartamentos();
+    
+    $response->set("apartaments",$apartamentData);
+
     $logged = $request->get("SESSION","logged");
     $response->set("logged",$logged);
     $response->setTemplate("index.php");
