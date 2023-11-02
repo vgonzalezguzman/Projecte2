@@ -37,33 +37,33 @@
                     <input type="hidden" name="r" value="doregister">
 
                     <div class="mb-3">
-                        <label for="name" class="form-label">Nombre</label>
-                        <input type="text" name="n" class="form-control" id="name">
+                        <label for="name" class="form-label">Nombre<span class="text-danger"> *</span></label>
+                        <input type="text" name="n" class="form-control" id="name" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="lastname" class="form-label">Apellidos</label>
-                        <input type="text" name="lastname" class="form-control" id="lastname">
+                        <label for="lastname" class="form-label">Apellidos<span class="text-danger"> *</span></label>
+                        <input type="text" name="lastname" class="form-control" id="lastname" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="email" class="form-label">Correo Electrónico</label>
-                        <input type="email" name="email" class="form-control" id="email">
+                        <label for="email" class="form-label">Correo Electrónico<span class="text-danger"> *</span></label>
+                        <input type="email" name="email" class="form-control" id="email" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Teléfono</label>
-                        <input type="tel" name="phone" class="form-control" id="phone">
+                        <label for="phone" class="form-label">Teléfono<span class="text-danger"> *</span></label>
+                        <input type="tel" name="phone" class="form-control" id="phone" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="cardnumber" class="form-label">Número de Tarjeta de Crédito</label>
-                        <input type="number" name="cardnumber" class="form-control" id="cardnumber">
+                        <label for="cardnumber" class="form-label">Número de Tarjeta de Crédito<span class="text-danger"> *</span></label>
+                        <input type="number" name="cardnumber" class="form-control" id="cardnumber" required> 
                     </div>
 
                     <div class="mb-3">
-                        <label for="pass" class="form-label">Contraseña *</label>
-                        <input type="password" name="pass" class="form-control" id="pass">
+                        <label for="pass" class="form-label">Contraseña<span class="text-danger"> *</span></label>
+                        <input type="password" name="pass" class="form-control" id="pass" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary custom-btn">Continuar</button>
