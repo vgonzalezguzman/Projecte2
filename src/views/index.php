@@ -39,17 +39,23 @@ use Emeset\Response;
 
     <div class="d-flex d-none d-sm-flex justify-content-center">
         <div id="carouselMostrari" class="col-8 carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../images/casa3.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../images/casa2.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../images/casa1.jpg" class="d-block w-100" alt="...">
-              </div>
-            </div>
+            <?php
+                foreach ($apartamentRandom as $url) {
+                    if ($carouselType == 0) {
+                        echo 
+                        '<div class="carousel-item active">
+                            <img src="'.$url['URL'].'" class="d-block w-100" alt="...">
+                        </div>';
+
+                    } else {
+                        echo
+                        '<div class="carousel-item">
+                            <img src="'.$url['URL'].'" class="d-block w-100" alt="...">
+                        </div>';
+
+                    }
+                }
+            ?>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselMostrari" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>

@@ -3,20 +3,27 @@
     <?php
     $id = 0;
     foreach ($apartaments as $value) {
-
+        $urlsArray = explode(', ', $value['Img_Apartament']);
+        $carouselType = 0;
         echo '<div class=" d-flex mt-5 flex-column col  rounded-4 p-0 align-items-center justify-content-center" >';
         echo '<div class="card  ms-0  col-11 min-height-400" >';
         echo    '<div id="pis'.$id.'_small" class="portadaCasa col-12 carousel slide">';
         echo        '<div class="carousel-inner rounded-4">';
-        echo            '<div class="carousel-item active">';
-        echo                '<img src="../images/casa1.jpg" class="d-block w-100" alt="...">';
-        echo            '</div>';
-        echo            '<div class="carousel-item">';
-        echo                '<img src="../images/casa2.jpg" class="d-block w-100" alt="...">';
-        echo            '</div>';
-        echo            '<div class="carousel-item">';
-        echo                '<img src="../images/casa3.jpg" class="d-block w-100" alt="...">';
-        echo            '</div>';
+                    foreach ($urlsArray as $url) {
+                        if ($carouselType == 0) {
+                            echo 
+                            '<div class="carousel-item active">
+                                <img src="'.$url.'" class="d-block w-100" alt="...">
+                            </div>';
+
+                        } else {
+                            echo
+                            '<div class="carousel-item">
+                                <img src="'.$url.'" class="d-block w-100" alt="...">
+                            </div>';
+
+                        }
+                    }
         echo        '</div>';
         echo        '<button class="carousel-control-prev" type="button" data-bs-target="#pis'.$id.'_small" data-bs-slide="prev">';
         echo            '<span class="carousel-control-prev-icon" aria-hidden="true"></span>';
@@ -51,17 +58,24 @@
                     </div>
                 <div class="modal-body">
                     <div id="pis'.$id.'" class="portadaCasa col-12 carousel slide">
-                        <div class="carousel-inner rounded-4">
-                            <div class="carousel-item active">
-                                <img src="../images/casa1.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../images/casa2.jpg" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../images/casa3.jpg" class="d-block w-100" alt="...">
-                            </div>
-                        </div>
+                        <div class="carousel-inner rounded-4">';
+                            $carouselType = 0;
+                            foreach ($urlsArray as $url) {
+                                if ($carouselType == 0) {
+                                    echo 
+                                    '<div class="carousel-item active">
+                                        <img src="'.$url.'" class="d-block w-100" alt="...">
+                                    </div>';
+        
+                                } else {
+                                    echo
+                                    '<div class="carousel-item">
+                                        <img src="'.$url.'" class="d-block w-100" alt="...">
+                                    </div>';
+        
+                                }
+                            }
+                        echo '</div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#pis'.$id.'" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
