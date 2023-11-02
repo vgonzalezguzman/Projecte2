@@ -1,7 +1,15 @@
 <?php
 // Este controlador sirve para ver la pagina de dades.php
+function ctrlDadesView($request,$response,$container)
+{
+    $userModel = $container->users();
 
-function ctrlDadesView($request,$response,$container){
+    $userdata = $userModel->getAll($_SESSION["user"]["ID_Usuari"]);     // Userdata tiene la info del usuario
+
+    $response->set("dades", $userdata);     // creamos dades y guardamos la info en esa variable
+
     $response->setTemplate("dades.php");
+
+    
     return $response;
 }

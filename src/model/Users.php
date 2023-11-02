@@ -10,20 +10,35 @@ class Users {
         $this->sql = $sql;
     }
 
-    public function getAll(){
-        $tasks = array();
-        $query = "select id, user, pass from users;";
-        foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $task) {
-            $tasks[] = $task;
+    public function getAll($ID_Usuari) {
+        $stm = $this->sql->prepare('SELECT * FROM usuari WHERE ID_Usuari = :ID_Usuari;');
+        $stm->execute([':ID_Usuari' => $ID_Usuari]);
+        $result = $stm->fetch(\PDO::FETCH_ASSOC);
+
+        if($result){
+            return $result;
+        } else {
+            false;
         }
-
-        return $tasks;
     }
-
-    // public function add($task) {
-    //     $stm = $this->sql->prepare('insert into tasks (task,deleted) values (:task, 0);');
-    //     $result = $stm->execute([':task' => $task]);
-    // }
+    public function updateUser($ID_Usuari, $name, $lastname, $phone, $email, $pass) {
+        $sql = 'UPDATE usuari 
+                SET Nom = :name, Cognoms = :lastname, Telefon = :phone, Email = :email, pass = :pass
+                WHERE ID_Usuari = :ID_Usuari';
+    
+        $stm = $this->sql->prepare($sql);
+        $stm->execute([
+            ':ID_Usuari' => $ID_Usuari,
+            ':name' => $name,
+            ':lastname' => $lastname,
+            ':phone' => $phone,
+            ':email' => $email,
+            ':pass' => $pass
+        ]);
+    }
+    
+    
+    
 
     public function login($email, $pass) {
         $stm = $this->sql->prepare('SELECT ID_Usuari , Email, Rol, pass FROM usuari WHERE Email = :Email;');
