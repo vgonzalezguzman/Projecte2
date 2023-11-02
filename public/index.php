@@ -14,7 +14,7 @@
  include "../src/controllers/ctrlApartament.php";
  include "../src/controllers/ctrlDoApartament.php";
  include "../src/controllers/ctrlDoLogout.php";
- include "../src/controllers/ctrlReserva.php";
+include "../src/controllers/ctrlReserva.php";
  include "../src/middleware/isLogged.php";
 /**
   * Carreguem les classes del Framework Emeset
