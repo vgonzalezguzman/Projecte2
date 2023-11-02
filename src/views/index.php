@@ -11,6 +11,7 @@
 </head>
 <body>
 
+
     <div class="dropdown d-flex position-absolute position-xs- top-0 end-0  d-none d-xl-flex">
         <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -27,6 +28,7 @@
                 } else {
                     // Mostrar botones si has iniciado sesion
                     echo '<li><a class="dropdown-item" href="index.php?r=apartament">Afegir departament</a></li>';
+                    echo '<li><a class="dropdown-item" href="index.php?r=dades">Dades</a></li>'; 
                     echo '<li><a class="dropdown-item" href="index.php?r=dologout">Tancar sessió</a></li>';
                 }
             ?>
@@ -84,15 +86,30 @@
   </div>
 </button>
   <div class="dropdown-menu">
-    <!-- Contenido del menú -->
-    <a class="dropdown-item" href="#">Opción 1</a>
-    <a class="dropdown-item" href="#">Opción 2</a>
-    <a class="dropdown-item" href="#">Opción 3</a>
+    <h5>Buscar destinos</h5>
+    <div class="calendar">
+        <label for="start">Desde:</label>
+        <input type="date" id="start">
+    </div>
+    <div class="calendar">
+        <label for="end">Hasta:</label>
+        <input type="date" id="end">
+    </div>
+    <label for="guests">Número de personas:</label>
+    <input type="number" id="guests" name="guests" min="1" max="6" placeholder="Número de personas">
+    <label for="guests">Número de habitaciones:</label>
+    <input type="number" id="guests" name="guests" min="1" max="6" placeholder="Número de personas">
+
+
   </div>
 </div>
     </div>
     
 
+    <?php
+    echo $apartaments['Titol'];
+
+    ?>
     <div id="mostraCases" class="ms-0 d-flex align-items-center row row-cols-xl-3 row-cols-1 row-cols-md-2 flex-lg-row justify-content-center col-12">
         <div class=" d-flex mt-5 flex-column col  rounded-4 p-0 align-items-center justify-content-center" >
             <div class="card  ms-0  col-11 min-height-400" >

@@ -76,6 +76,11 @@
                         <input type="int" name="cancelacion" class="form-control" id="cancelacion">
                     </div>  
 
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Default file input example</label>
+                            <input class="form-control" type="file" id="formFile">
+                    </div>
+
                     <button type="submit" class="btn btn-primary custom-btn">Continuar</button>
                 </form>
             </div>

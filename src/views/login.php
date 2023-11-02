@@ -37,13 +37,13 @@
                     <input type="hidden" name="r" value="dologin">
 
                     <div class="mb-3">
-                        <label for="name" class="form-label">Email</label>
-                        <input type="text" name="email" class="form-control" id="name">
+                        <label for="name" class="form-label">Email<span class="text-danger"> *</span></label>
+                        <input type="text" name="email" class="form-control" id="name" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="lastname" class="form-label">Password</label>
-                        <input type="password" name="pass" class="form-control" id="lastname">
+                        <label for="lastname" class="form-label">Password<span class="text-danger"> *</span></label>
+                        <input type="password" name="pass" class="form-control" id="lastname" required>
                     </div>
                     <button type="submit" class="btn btn-primary custom-btn">Continuar</button>
                 </form>

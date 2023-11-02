@@ -14,7 +14,12 @@
  include "../src/controllers/ctrlApartament.php";
  include "../src/controllers/ctrlDoApartament.php";
  include "../src/controllers/ctrlDoLogout.php";
+ include "../src/controllers/ctrlDades.php";
+ include "../src/controllers/ctrlDoDades.php";
  include "../src/controllers/ctrlReserva.php";
+
+
+
  include "../src/middleware/isLogged.php";
 /**
   * Carreguem les classes del Framework Emeset
@@ -65,10 +70,15 @@ elseif($r == "apartament") {
 elseif($r == "doaddapartament") {
   $response = isLogged ($request, $response, $container, "ctrlDoApartament");
 }
+elseif($r == "dades") {
+  $response = isLogged ($request, $response, $container, "ctrlDadesView");
+}
+elseif($r == "dodades") {
+  $response = isLogged ($request, $response, $container, "ctrlDoDades");
+}
 elseif($r == "reserva") {
   $response = ctrlReservaView($request, $response, $container);
 }
-
 else {
      echo "No existeix la ruta";
  }
