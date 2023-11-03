@@ -76,12 +76,19 @@
                         <input type="int" name="cancelacion" class="form-control" id="cancelacion">
                     </div>  
 
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">Default file input example</label>
-                            <input class="form-control" type="file" id="formFile">
-                    </div>
+                    <form action="doapartament" method="post" class="custom-form">
+                        <input type="hidden" name="r" value="doaddapartament">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Añadir imagenes</label>
+                                <input class="form-control" name="url" type="file" id="url" multiple>
+                        </div>
+                        <button type="submit" class="btn btn-primary custom-btn">Continuar</button>
+                    </form>
 
-                    <button type="submit" class="btn btn-primary custom-btn">Continuar</button>
+                    
+                    <input type="hidden" name="id_apa" id="id_apa" value="">
+
+                    
                 </form>
             </div>
         </div>

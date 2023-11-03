@@ -62,4 +62,9 @@ class Container
         return new \Daw\Apartaments($this->sql);
     }
 
+    public function img_apartament()
+    {
+        return new \Daw\Img_apartament($this->sql);
+    }   
+
 }

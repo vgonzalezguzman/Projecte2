@@ -27,6 +27,17 @@ class Apartaments {
         return $result;
     }
 
+    
+    public function getLastId(){
+        $stm = $this->sql->prepare("SELECT MAX(ID_Apartament) AS last_id FROM apartament;");
+        $stm->execute();
+        $result = $stm->fetch(\PDO::FETCH_ASSOC);
+        if($result && isset($result['last_id'])){
+            return $result['last_id'];
+        } else {
+            return null;
+        }
+    }
     public function getApartamentosRandom()
     {
         $stm = $this->sql->prepare("SELECT * FROM img_apartament i WHERE i.ID_Apartament = ( SELECT a.ID_Apartament FROM apartament a ORDER BY RAND() LIMIT 1);");
@@ -49,11 +60,25 @@ class Apartaments {
             ':cancelacion' => $cancelacion,
            
         ]);
+        
     }
     
+    public function addApartamentosImages($lastApartamentId, $url) {
+        // Si el título no está registrado, procede con la inserción
+        $insertStmt = $this->sql->prepare('INSERT INTO img_apartament (ID_Apartament, URL) VALUES (:lastApartamentId, :url)');
+
+        $result = $insertStmt->execute([
+            ':lastApartamentId' => $lastApartamentId,
+            ':url' => $url,
+            
+        ]);
+    }
 
     public function delete($ID_Apartament) {
         $stm = $this->sql->prepare('UPDATE apartament SET deleted = 1 WHERE ID_Apartament = :ID_Apartament;');
         $result = $stm->execute([':ID_Apartament' => $ID_Apartament]);
     }
+
+  
+    
 }
