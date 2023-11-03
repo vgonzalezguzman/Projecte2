@@ -5,6 +5,7 @@
  */
 
  include "../src/config.php";
+
  include "../src/controllers/ctrlIndex.php";
  include "../src/controllers/ctrlJson.php";
  include "../src/controllers/ctrlDoRegister.php";
@@ -17,7 +18,7 @@
  include "../src/controllers/ctrlDades.php";
  include "../src/controllers/ctrlDoDades.php";
  include "../src/controllers/ctrlReserva.php";
-
+ include "../src/controllers/ctrlViewReservasUsuari.php";
 
 
  include "../src/middleware/isLogged.php";
@@ -78,6 +79,9 @@ elseif($r == "dodades") {
 }
 elseif($r == "reserva") {
   $response = ctrlReservaView($request, $response, $container);
+}
+elseif ($r == "llistaReservaUsuari") {
+  $response = isLogged ($request, $response, $container, "ctrlViewReservasUsuari");
 }
 else {
      echo "No existeix la ruta";

@@ -1,4 +1,3 @@
-
 <div id="mostraCases" class="ms-0 d-flex align-items-center row row-cols-xl-3 row-cols-1 row-cols-md-2 flex-lg-row justify-content-center col-12">
     <?php
     $id = 0;
@@ -7,80 +6,76 @@
         $carouselType = 0;
         echo '<div class=" d-flex mt-5 flex-column col  rounded-4 p-0 align-items-center justify-content-center" >';
         echo '<div class="card  ms-0  col-11 min-height-400" >';
-        echo    '<div id="pis'.$id.'_small" class="portadaCasa col-12 carousel slide">';
+        echo    '<div id="pis' . $id . '_small" class="portadaCasa col-12 carousel slide">';
         echo        '<div class="carousel-inner rounded-4">';
-                    foreach ($urlsArray as $url) {
-                        if ($carouselType == 0) {
-                            echo 
-                            '<div class="carousel-item active">
-                                <img src="'.$url.'" class="d-block w-100" alt="...">
+        foreach ($urlsArray as $url) {
+            if ($carouselType == 0) {
+                echo
+                '<div class="carousel-item active">
+                                <img src="' . $url . '" class="d-block w-100" alt="...">
                             </div>';
-
-                        } else {
-                            echo
-                            '<div class="carousel-item">
-                                <img src="'.$url.'" class="d-block w-100" alt="...">
+            } else {
+                echo
+                '<div class="carousel-item">
+                                <img src="' . $url . '" class="d-block w-100" alt="...">
                             </div>';
-
-                        }
-                    }
+            }
+        }
         echo        '</div>';
-        echo        '<button class="carousel-control-prev" type="button" data-bs-target="#pis'.$id.'_small" data-bs-slide="prev">';
+        echo        '<button class="carousel-control-prev" type="button" data-bs-target="#pis' . $id . '_small" data-bs-slide="prev">';
         echo            '<span class="carousel-control-prev-icon" aria-hidden="true"></span>';
         echo            '<span class="visually-hidden">Previous</span>';
         echo        '</button>';
-        echo        '<button class="carousel-control-next" type="button" data-bs-target="#pis'.$id.'_small" data-bs-slide="next">';
+        echo        '<button class="carousel-control-next" type="button" data-bs-target="#pis' . $id . '_small" data-bs-slide="next">';
         echo            '<span class="carousel-control-next-icon" aria-hidden="true"></span>';
         echo            '<span class="visually-hidden">Next</span>';
         echo        '</button>';
         echo    '</div>';
-        echo    '<div class="card-body"  data-bs-toggle="modal" data-bs-target="#modalPis'.$id.'" >';
+        echo    '<div class="card-body"  data-bs-toggle="modal" data-bs-target="#modalPis' . $id . '" >';
         echo        '<div class="d-flex row p-3">';
-        echo            '<p id="title" class="col-12"> '.$value['Titol'].'</p>';  
-        echo            '<p id="localitzacio" class="col-12"> '.$value['Adr_Postal'].' </p>';
-        echo            '<p id="superficie" class="col-6"> '.$value['Metres_Cuadrats'].' m2 </p>';
-        echo            '<p id="Ocupants" class="col-6"> '.$value['N_Habitacions'].' Habitacions </p>';
-        echo            '<p id="preu" class="col-12"> '.$value['Preu_TBaixa'].'€ nit </p>';  
+        echo            '<p id="title" class="col-12"> ' . $value['Titol'] . '</p>';
+        echo            '<p id="localitzacio" class="col-12"> ' . $value['Adr_Postal'] . ' </p>';
+        echo            '<p id="superficie" class="col-6"> ' . $value['Metres_Cuadrats'] . ' m2 </p>';
+        echo            '<p id="Ocupants" class="col-6"> ' . $value['N_Habitacions'] . ' Habitacions </p>';
+        echo            '<p id="preu" class="col-12"> ' . $value['Preu_TBaixa'] . '€ nit </p>';
         echo        '</div>';
         echo    '</div>';
 
-        echo'</div>';
+        echo '</div>';
 
         echo '
-        <div class="modal fade" id="modalPis'.$id.'" tabindex="-1" role="dialog" aria-labelledby="modalPis'.$id.'Label" aria-hidden="true">
+        <div class="modal fade" id="modalPis' . $id . '" tabindex="-1" role="dialog" aria-labelledby="modalPis' . $id . 'Label" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable custom-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalPis'.$id.'Label">Apa1</h5>
+                        <h5 class="modal-title" id="modalPis' . $id . 'Label">Apa1</h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="border: none; background-color: transparent;">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                 <div class="modal-body">
-                    <div id="pis'.$id.'" class="portadaCasa col-12 carousel slide">
+                    <div id="pis' . $id . '" class="portadaCasa col-12 carousel slide">
                         <div class="carousel-inner rounded-4">';
-                            $carouselType = 0;
-                            foreach ($urlsArray as $url) {
-                                if ($carouselType == 0) {
-                                    echo 
-                                    '<div class="carousel-item active">
-                                        <img src="'.$url.'" class="d-block w-100" alt="...">
+        $carouselType = 0;
+        foreach ($urlsArray as $url) {
+            if ($carouselType == 0) {
+                echo
+                '<div class="carousel-item active">
+                                        <img src="' . $url . '" class="d-block w-100" alt="...">
                                     </div>';
-        
-                                } else {
-                                    echo
-                                    '<div class="carousel-item">
-                                        <img src="'.$url.'" class="d-block w-100" alt="...">
+            } else {
+                echo
+                '<div class="carousel-item">
+                                        <img src="' . $url . '" class="d-block w-100" alt="...">
                                     </div>';
-        
-                                }
-                            }
-                        echo '</div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#pis'.$id.'" data-bs-slide="prev">
+            }
+        }
+        echo '</div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#pis' . $id . '" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#pis'.$id.'" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#pis' . $id . '" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
@@ -88,16 +83,16 @@
                     <div class="card-body">
                         <div class="d-flex row p-3">
                             <p id="localitzacio" class="col-12">
-                                '.$value['Titol'].'
+                                ' . $value['Titol'] . '
                             </p>
                             <p id="superficie" class="col-6">
-                                '.$value['Metres_Cuadrats'].' m2
+                                ' . $value['Metres_Cuadrats'] . ' m2
                             </p>
                             <p id="Ocupants" class="col-6">
-                                '.$value['N_Habitacions'].' Habitacions
+                                ' . $value['N_Habitacions'] . ' Habitacions
                             </p>
                             <p id="preu" class="col-12">
-                                '.$value['Preu_TBaixa'].'€ nit
+                                ' . $value['Preu_TBaixa'] . '€ nit
                             </p>  
                         </div>
                         <p>Qué ofereix aquest espai?</p>
@@ -118,7 +113,10 @@
                             </div>
                         </div>
         
-                        <div class="calendar">
+                        ' ;
+                        if ($tipo == "") {
+                            echo
+                            '<div class="calendar">
                             <label for="start">Desde:</label>
                             <input type="date" id="start">
                         </div>
@@ -130,11 +128,26 @@
                         <button class="fechas">Buscar</button>
         
                         <label for="guests">Número de personas:</label>
-                        <input type="number" id="guests" name="guests" min="1" max="6" placeholder="Número de personas">
+                        <input type="number" id="guests" name="guests" min="1" max="6" placeholder="Número de personas">';
+
+                        } elseif ($tipo == "viewUsuari") {
+                                echo '
+                                    <div class="d-flex row p-3">
+                                        <p id ="data-inici" class="col-6">Entrada</br>'.$value["DataInici"].'</p>
+                                        <p id ="data-final" class="col-6">Sortida</br>'.$value["DataFinal"].'</p>
+                                        <p id ="e-reserva" class="col-12">Estat de la reserva</br>'.$value["EstatReserva"].'</p>
+                                        <p id ="t-cancelacio" class="col-12">Periòde de cancelaciò amb devolució</br>'.$value["TempsCancelacio"].' dies</p>
+                                        <p id ="preu-Final" class="col-12">Preu</br>'.$value["preu"].' €</p>
+                                    </div>
+                                ';
+                        }
+                        echo '
                     </div>
                 </div>
-                
-                <div class="modal-footer">
+                ' ;
+                if ($tipo == "") {
+                    echo
+                    '<div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <div data-tooltip="Preu:123€" class="button">
                         <div class="button-wrapper">
@@ -148,16 +161,21 @@
                                 </span>
                             </div>
                         </div>
-                    </div>
+                    </div>';
+
+                } elseif ($tipo == "viewUsuari") {
+                        echo "";
+                }
+                echo '
+
                 </div>
                 
             </div>
         </div>';
-                
-        echo'</div>';
-        $id++;
 
+        echo '</div>';
+        $id++;
     }
-    
+
     ?>
 </div>

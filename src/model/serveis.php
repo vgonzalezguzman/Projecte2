@@ -13,15 +13,11 @@ class Serveis {
 
     public function getServeis()
     {
-        $serveis = array();
         $query = "SELECT * FROM serveis";
         $stm = $this->sql->prepare($query);
         $stm->execute();
-
-        while ($servei = $stm->fetch(\PDO::FETCH_ASSOC)) {
-            $serveis[] = $servei;
-        }
-        return $serveis;
+        $servei = $stm->fetch(\PDO::FETCH_ASSOC);
+        return $servei;
     }
 
     public function addserveis($id_servei, $id_apartament, $nom_servei) {
@@ -37,6 +33,6 @@ class Serveis {
 
     public function delete($ID_servei) {
         $stm = $this->sql->prepare('UPDATE serveis SET deleted = 1 WHERE ID_Servei = :ID_Servei;');
-        $result = $stm->execute([':ID_Servei' => $ID_Servei]);
+        $result = $stm->execute([':ID_Servei' => $ID_servei]);
     }
 }
