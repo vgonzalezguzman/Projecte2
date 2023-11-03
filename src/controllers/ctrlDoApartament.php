@@ -1,6 +1,6 @@
 <?php
-// Este controlador transforma los datos a variables php y llama a la función ctrlRegister
-// de Users.php
+// Este controlador transforma los datos a variables php y llama a la funciones
+// de Apartament.php
 
 function ctrlDoApartament($request, $response, $container){
 
@@ -12,17 +12,34 @@ function ctrlDoApartament($request, $response, $container){
     $TBaja = $request->get(INPUT_POST, "TBaja");
     $TALT = $request->get(INPUT_POST, "TALT");
     $cancelacion = $request->get(INPUT_POST, "cancelacion");
+    $imagenes = $_FILES['imagenes'];
 
-    $userModel = $container->Apartaments();
+
+    $apartamentModel = $container->Apartaments();
 
     $ID_Usuari = $_SESSION["user"]["ID_Usuari"];
 
-    $userModel = $userModel->addapartament($title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $ID_Usuari);
-    if ($userModel) {        
-        $response->redirect("location: index.php");
-    } else {
-        $response->redirect("location: index.php");
+    $apartamentModel = $apartamentModel->addapartament($title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $ID_Usuari);
+   
+    $lastAppartmentID = $apartamentModel->getLastAppIDByUser($ID_Usuari);
+    
+    $Carpeta = 'IMG_Apartament/' . $lastAppartmentID . '/';
+
+        // Crear la carpeta si no existe
+    if (!file_exists($Carpeta)) {
+        mkdir($Carpeta, 0777, true); // Cambia los permisos según sea necesario
     }
+
+    // Guardar las imágenes en la carpeta
+    foreach ($imagenes['tmp_name'] as $key => $tmp_name) {
+        $imagen = $imagenes['name'][$key];
+        $destino = $Carpeta . $imagen;
+        move_uploaded_file($tmp_name, $destino);
+    }
+
+    
+    $response->redirect("location: index.php");
+    
 
     return $response;
 }

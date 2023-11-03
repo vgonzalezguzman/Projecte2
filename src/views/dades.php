@@ -38,6 +38,7 @@
             color: #fff;
             padding: 10px 20px;
             cursor: pointer;
+            margin-top: 10px;
         }
 
         .custom-btn:hover {
@@ -65,6 +66,10 @@
 
             <button class="custom-btn" type="submit">Guardar Cambios</button>
         </form>
+            <a href="index.php?r=">
+                <button class="custom-btn" type="submit">Cancelar</button>
+            </a>
+            
     </div>
 </body>
 </html>

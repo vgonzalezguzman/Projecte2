@@ -22,8 +22,6 @@
         <ul class="dropdown-menu">
             <?php
 
-use Emeset\Response;
-
                 if (!$logged) {
                     // Mostrar botones si no has inicado sesion
                     echo '<li><a class="dropdown-item" href="index.php?r=login">Inicia sessió</a></li>';

@@ -37,7 +37,7 @@ class Apartaments {
 
     public function addapartament($title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion ,$ID_Usuari) {
         // Si el título no está registrado, procede con la inserción
-        $insertStmt = $this->sql->prepare('INSERT INTO apartament (Titol, Adr_Postal, Descripcio, Metres_Cuadrats, N_Habitacions, Preu_TBaixa, Preu_Talt, Dies_Cancelacio) VALUES (:title, :postal, :descripcion, :metros, :habitaciones, :TBaja, :TALT, :cancelacion)');
+        $insertStmt = $this->sql->prepare('INSERT INTO apartament (Titol, Adr_Postal, Descripcio, Metres_Cuadrats, N_Habitacions, Preu_TBaixa, Preu_Talt, Dies_Cancelacio, ID_Usuari) VALUES (:title, :postal, :descripcion, :metros, :habitaciones, :TBaja, :TALT, :cancelacion, :ID_Usuari)');
         $result = $insertStmt->execute([
             ':title' => $title,
             ':postal' => $postal,
@@ -47,8 +47,16 @@ class Apartaments {
             ':TBaja' => $TBaja,
             ':TALT' => $TALT,
             ':cancelacion' => $cancelacion,
-           
+            ':ID_Usuari' => $ID_Usuari,
         ]);
+    }
+    
+
+    public function getLastAppIDByUser($ID_Usuari) {
+        $stm = $this->sql->prepare('SELECT MAX(ID_Apartament) FROM apartament WHERE ID_Usuari = :ID_Usuari;');
+        $stm->execute([':ID_Usuari' => $ID_Usuari]);
+        $result = $stm->fetch(PDO::FETCH_COLUMN);
+        return $result;
     }
     
 
