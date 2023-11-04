@@ -16,8 +16,8 @@ function ctrlIndex($request, $response, $container){
 
 
     $logged = $request->get("SESSION","logged");
-
     $response->set("logged",$logged);
+    $response->set("user",$logged);
     $response->setTemplate("index.php");
 
     

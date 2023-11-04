@@ -65,6 +65,9 @@
 
             <button class="custom-btn" type="submit">Guardar Cambios</button>
         </form>
+            <a href="index.php?r=">
+                <button class="custom-btn" type="submit">Home</button>
+            </a>
     </div>
 </body>
 </html>
