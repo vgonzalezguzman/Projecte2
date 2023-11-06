@@ -33,7 +33,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <form action="index.php" method="post" class="custom-form">
+                <form action="index.php" method="post" class="custom-form" enctype="multipart/form-data">
                     <input type="hidden" name="r" value="doaddapartament">
 
                     <div class="mb-3">
@@ -75,19 +75,29 @@
                         <label for="pass" class="form-label">Dias de Cancelacion</label>
                         <input type="int" name="cancelacion" class="form-control" id="cancelacion">
                     </div>  
-
-                    <form action="doapartament" method="post" class="custom-form">
-                        <input type="hidden" name="r" value="doaddapartament">
-                        <div class="mb-3">
+                    <div class="mb-3">
                             <label for="formFile" class="form-label">Añadir imagenes</label>
-                                <input class="form-control" name="url" type="file" id="url" multiple>
+                            <input  class="form-control" type="file" name="images[]" multiple>
                         </div>
+
+                        <div class="mb-3">
+                            <label for="pass" class="form-label">Servicios</label>
+                            <div class="">
+                        <?php
+                        // Supongamos que $serv es el array multidimensional con los servicios
+                        foreach ($serv as $service) {
+                            echo '<div class="form-check form-check-inline col-md-3 flex-wrap align-items-center" >';
+                            echo '<input class="form-check-input" type="checkbox"  name="servicesSelected[]" id="servicesSelected' . $service["ID_Servei"] . '" value="servicesSelected' . $service["ID_Servei"] . '">';
+                            echo '<label class="form-check-label" for="servicesSelected' . $service["ID_Servei"] . '">';
+                            echo $service["Nom_Servei"];
+                            echo '</label>';
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+                  </div>
+                        
                         <button type="submit" class="btn btn-primary custom-btn">Continuar</button>
-                    </form>
-
-                    
-                    <input type="hidden" name="id_apa" id="id_apa" value="">
-
                     
                 </form>
             </div>

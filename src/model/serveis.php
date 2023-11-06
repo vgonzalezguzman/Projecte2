@@ -14,13 +14,10 @@ class Serveis {
     public function getServeis()
     {
         $serveis = array();
-        $query = "SELECT * FROM serveis";
+        $query = "SELECT * FROM serveis;";
         $stm = $this->sql->prepare($query);
         $stm->execute();
-
-        while ($servei = $stm->fetch(\PDO::FETCH_ASSOC)) {
-            $serveis[] = $servei;
-        }
+        $serveis = $stm->fetchAll(\PDO::FETCH_ASSOC);
         return $serveis;
     }
 

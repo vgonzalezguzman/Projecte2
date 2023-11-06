@@ -13,13 +13,13 @@
                         if ($carouselType == 0) {
                             echo 
                             '<div class="carousel-item active">
-                                <img src="'.$url.'" class="d-block w-100" alt="...">
+                            <img src="<?php echo $url; ?>" class="d-block w-100" alt="...">
                             </div>';
 
                         } else {
                             echo
                             '<div class="carousel-item">
-                                <img src="'.$url.'" class="d-block w-100" alt="...">
+                            <img src="<?php echo $url; ?>" class="d-block w-100" alt="...">
                             </div>';
 
                         }
@@ -64,13 +64,13 @@
                                 if ($carouselType == 0) {
                                     echo 
                                     '<div class="carousel-item active">
-                                        <img src="'.$url.'" class="d-block w-100" alt="...">
+                                       <img src="<?php echo $url; ?>" class="d-block w-100" alt="...">
                                     </div>';
         
                                 } else {
                                     echo
                                     '<div class="carousel-item">
-                                        <img src="'.$url.'" class="d-block w-100" alt="...">
+                                       <img src="<?php echo $url; ?>" class="d-block w-100" alt="...">
                                     </div>';
         
                                 }
