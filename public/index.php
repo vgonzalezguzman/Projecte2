@@ -5,6 +5,7 @@
  */
 
  include "../src/config.php";
+
  include "../src/controllers/ctrlIndex.php";
  include "../src/controllers/ctrlJson.php";
  include "../src/controllers/ctrlDoRegister.php";
@@ -22,6 +23,7 @@
  include "../src/controllers/ctrlEditApartament.php";
  include "../src/controllers/ctrlDoEditApartament.php";
  include "../src/controllers/ctrlDoDeleteApartament.php";
+ include "../src/controllers/ctrlViewReservasUsuari.php";
 
 
 
@@ -102,6 +104,9 @@ elseif($r == "dodeleteapartament") {
   $response = Gestor($request, $response, $container, "ctrlDoDeleteApartament");
 }
 
+elseif ($r == "llistaReservaUsuari") {
+  $response = isLogged ($request, $response, $container, "ctrlViewReservasUsuari");
+}
 else {
      echo "No existeix la ruta";
  }

@@ -13,15 +13,19 @@ class Img_apartament {
 
     public function getImg_apartament()
     {
-        $img_apartaments = array();
         $query = "SELECT * FROM img_apartament";
         $stm = $this->sql->prepare($query);
         $stm->execute();
-
-        while ($img_apartament = $stm->fetch(\PDO::FETCH_ASSOC)) {
-            $img_apartaments[] = $img_apartament;
-        }
-        return $img_apartaments;
+        $img_apartament = $stm->fetch(\PDO::FETCH_ASSOC);
+        return $img_apartament;
+    }
+    
+    public function getImatgesRandom()
+    {
+        $stm = $this->sql->prepare("SELECT * FROM img_apartament i WHERE i.ID_Apartament = ( SELECT a.ID_Apartament FROM apartament a ORDER BY RAND() LIMIT 1);");
+        $stm->execute();
+        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
     }
 
     public function addImg_apartament($id_imatge, $id_apartament, $url) {

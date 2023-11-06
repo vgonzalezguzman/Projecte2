@@ -16,4 +16,9 @@
 
 include "../src/model/Users.php";
 include "../src/model/Apartament.php";
+include "../src/model/disponibilitat.php";
+include "../src/model/Img_apartament.php";
+include "../src/model/reserva.php";
+include "../src/model/serveis.php";
+include "../src/model/temporada.php";
 include "../src/model/Db.php";
