@@ -103,7 +103,6 @@ elseif($r == "doeditapartament") {
 elseif($r == "dodeleteapartament") {
   $response = Gestor($request, $response, $container, "ctrlDoDeleteApartament");
 }
-
 elseif ($r == "llistaReservaUsuari") {
   $response = isLogged ($request, $response, $container, "ctrlViewReservasUsuari");
 }

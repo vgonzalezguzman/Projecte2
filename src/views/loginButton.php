@@ -14,13 +14,15 @@
                     echo '<li><a class="dropdown-item" href="index.php?r=register">Registra\'t</a></li>';
                 } else {
                     // Mostrar botones si has iniciado sesion
+                    echo '<li><a class="dropdown-item" href="index.php?r=">Home</a></li>';
                     echo '<li><a class="dropdown-item" href="index.php?r=apartament">Afegir departament</a></li>';
-                    echo '<li><a class="dropdown-item" href="index.php?r=llistaReservaUsuari">Les teves reserves</a></li>';
-                    echo '<li><a class="dropdown-item" href="index.php?r=dades">Dades</a></li>'; 
-                    if ($gestor) {
-                        echo 'hola';
+                    echo '<li><a class="dropdown-item" href="index.php?r=dades">Dades</a></li>';
+                    if($_SESSION["user"]["Rol"] == "Gestor") {                        // Mostrar botones si eres gestor
+                        echo '<li><a class="dropdown-item" href="index.php?r=users">Gestio Usuari</a></li>';
+                        echo '<li><a class="dropdown-item" href="index.php?r=gestioapartament">Gestio apartaments</a></li>';
                     }
                     echo '<li><a class="dropdown-item" href="index.php?r=dologout">Tancar sessió</a></li>';
+
                 }
             ?>
         </ul>

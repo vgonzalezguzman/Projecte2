@@ -11,6 +11,8 @@ function ctrlGestioApartamentView($request,  $response,$container){
     $apartamentModel = $apartamentModel->getApartamentosByID($ID_Usuari);
     $response->set("apartaments",$apartamentModel);
 
+    $logged = $request->get("SESSION","logged");
+    $response->set("logged",$logged);
     $response->setTemplate("gestioapartament.php");
     return $response;
 }

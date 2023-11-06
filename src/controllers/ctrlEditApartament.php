@@ -9,6 +9,9 @@ function ctrlEditApartamentView($request, $response, $container){
 
     $response->set("apartament",$apartamentModel);
 
+    $logged = $request->get("SESSION","logged");
+    $response->set("logged",$logged);
+
     $response->setTemplate("editapartament.php");
 
     return $response;
