@@ -3,6 +3,10 @@
 
 function ctrlViewReservasUsuari($request,  $response,$container){    
 
+    $logged = $request->get("SESSION","logged");
+    
+    $response->set("logged",$logged);
+
     $userModel = $container->users();
 
     $userdata = $userModel->getAll($_SESSION["user"]["ID_Usuari"]);  

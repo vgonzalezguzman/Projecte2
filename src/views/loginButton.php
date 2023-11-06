@@ -17,6 +17,9 @@
                     echo '<li><a class="dropdown-item" href="index.php?r=apartament">Afegir departament</a></li>';
                     echo '<li><a class="dropdown-item" href="index.php?r=llistaReservaUsuari">Les teves reserves</a></li>';
                     echo '<li><a class="dropdown-item" href="index.php?r=dades">Dades</a></li>'; 
+                    if ($gestor) {
+                        echo 'hola';
+                    }
                     echo '<li><a class="dropdown-item" href="index.php?r=dologout">Tancar sessió</a></li>';
                 }
             ?>
