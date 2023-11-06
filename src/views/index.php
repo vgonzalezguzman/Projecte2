@@ -31,8 +31,13 @@ use Emeset\Response;
                 } else {
                     // Mostrar botones si has iniciado sesion
                     echo '<li><a class="dropdown-item" href="index.php?r=apartament">Afegir departament</a></li>';
-                    echo '<li><a class="dropdown-item" href="index.php?r=dades">Dades</a></li>'; 
+                    echo '<li><a class="dropdown-item" href="index.php?r=dades">Dades</a></li>';
+                    if($_SESSION["user"]["Rol"] == "Gestor") {                        // Mostrar botones si eres gestor
+                        echo '<li><a class="dropdown-item" href="index.php?r=users">Gestio Usuari</a></li>';
+                        echo '<li><a class="dropdown-item" href="index.php?r=gestioapartament">Gestio apartaments</a></li>';
+                    }
                     echo '<li><a class="dropdown-item" href="index.php?r=dologout">Tancar sessió</a></li>';
+
                 }
             ?>
         </ul>

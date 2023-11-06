@@ -15,11 +15,8 @@ function ctrlDoDades($request, $response, $container) {
 
     $userModel = $userModel->updateUser($ID_Usuari, $user, $lastname, $phone, $mail, $pass);
 
-    if ($userModel) {
-        $response->redirect("location: index.php");
-    } else {
-        $response->redirect("location: index.php");
-    }
+    $response->redirect("location: index.php?r=dades");
+
 
     return $response;
 }

@@ -8,7 +8,7 @@
     "db" => [
         "user" => "root",
         "pass" => "",
-        "db" => "projecte2",
+        "db" => "projecte_2",
         "host" => "localhost"
     ],
 ];
