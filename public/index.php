@@ -19,8 +19,9 @@
  include "../src/controllers/ctrlReserva.php";
  include "../src/controllers/ctrlUsers.php";
  include "../src/controllers/ctrlGestioApartament.php";
-
-
+ include "../src/controllers/ctrlEditApartament.php";
+ include "../src/controllers/ctrlDoEditApartament.php";
+ include "../src/controllers/ctrlDoDeleteApartament.php";
 
 
 
@@ -90,6 +91,15 @@ elseif($r == "users") {
 }
 elseif($r == "gestioapartament") {
   $response = Gestor($request, $response, $container, "ctrlGestioApartamentView");
+}
+elseif($r == "editapartament") {
+  $response = Gestor($request, $response, $container, "ctrlEditApartamentView");
+}
+elseif($r == "doeditapartament") {
+  $response = Gestor($request, $response, $container, "ctrlDoEditApartament");
+}
+elseif($r == "dodeleteapartament") {
+  $response = Gestor($request, $response, $container, "ctrlDoDeleteApartament");
 }
 
 else {
