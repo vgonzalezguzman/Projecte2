@@ -8,12 +8,15 @@
     "db" => [
         "user" => "root",
         "pass" => "",
-        "db" => "projecte2",
+        "db" => "projecte_2",
         "host" => "localhost"
     ],
 ];
 
 
+include "../src/model/serveis.php";
+include "../src/model/Serveis_apartament.php";
 include "../src/model/Users.php";
 include "../src/model/Apartament.php";
+include "../src/model/Img_apartament.php";
 include "../src/model/Db.php";

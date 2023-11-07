@@ -7,10 +7,13 @@ function ctrlIndex($request, $response, $container){
     $response->set("name", $name);
 
 
-    $apartament = $container->apartaments();
-    $apartaments = $apartament->getApartamentos();
+    $apartamentModel = $container->apartaments();
+    $apartamentData = $apartamentModel->getApartamentosImages();
+    $apartamentRandom = $apartamentModel->getApartamentosRandom();
+    
+    $response->set("apartaments",$apartamentData);
+    $response->set("apartamentRandom",$apartamentRandom);
 
-    $response->set("apartaments",$apartaments);
 
     $logged = $request->get("SESSION","logged");
 

@@ -2,7 +2,7 @@
 
 namespace Daw;
 
-class Serveis {
+class Serveis_apartament {
 
     public $sql;
 
@@ -35,5 +35,17 @@ class Serveis {
     public function delete($ID_servei) {
         $stm = $this->sql->prepare('UPDATE serveis SET deleted = 1 WHERE ID_Servei = :ID_Servei;');
         $result = $stm->execute([':ID_Servei' => $ID_Servei]);
+    }
+
+    public function addApartamentosServicios($lastApartamentId, $id_servei){
+  
+        $insertStmt = $this->sql->prepare('INSERT INTO apartamentserveis (ID_Apartament, ID_Servei) VALUES (:lastApartamentId, :id_servei)');
+        $result = $insertStmt->execute([
+            ':lastApartamentId' => $lastApartamentId,
+            ':id_servei' => $id_servei,
+            
+        ]);
+       
+      return $this;
     }
 }

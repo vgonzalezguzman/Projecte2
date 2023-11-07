@@ -20,6 +20,7 @@
 
 
 
+
  include "../src/middleware/isLogged.php";
 /**
   * Carreguem les classes del Framework Emeset

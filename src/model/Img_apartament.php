@@ -24,13 +24,14 @@ class Img_apartament {
         return $img_apartaments;
     }
 
-    public function addImg_apartament($id_imatge, $id_apartament, $url) {
+    public function addApartamentosImages($lastApartamentId, $url) {
         // Si el título no está registrado, procede con la inserción
-        $insertStmt = $this->sql->prepare('INSERT INTO img_apartament (ID_Imatge, ID_Apartament, URL) VALUES (:id_imatge, :id_apartament, :url)');
+        $insertStmt = $this->sql->prepare('INSERT INTO img_apartament (ID_Apartament, URL) VALUES (:lastApartamentId, :url)');
+
         $result = $insertStmt->execute([
-            'id_imatge' => $id_imatge,
-            'id_apartament' => $id_apartament,
-            'url' => $url,
+            ':lastApartamentId' => $lastApartamentId,
+            ':url' => $url,
+            
         ]);
     }
     
