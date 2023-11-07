@@ -3,17 +3,12 @@
 <?php require "nothingFound.php"; ?>    
 <?php
 }
-else { ?><?php if ($apartaments == NULL) {    
-?>   
-<?php require "nothingFound.php"; ?>    
-<?php
-}
 else { ?>
 <div id="mostraCases" class="ms-0 d-flex align-items-center row row-cols-xl-3 row-cols-1 row-cols-md-2 flex-lg-row justify-content-center col-12">
     <?php
     $id = 0;
     foreach ($apartaments as $value) {
-        $urlsArray = explode(', ',   $value['Img_Apartament']);
+        $urlsArray = explode(', ',  $value['Img_Apartament']);
         $carouselType = 0;
     ?>
 
@@ -209,8 +204,10 @@ else { ?>
         </div>
     <?php
         $id++;
-
     }
-    
+
     ?>
 </div>
+<?php
+}
+?> 
