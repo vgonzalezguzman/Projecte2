@@ -13,7 +13,7 @@
         <h1>Edita el teu apartament</h1>
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <form action="index.php" method="post" class="row g-3">
+                <form action="index.php" method="post" class="row g-3" enctype="multipart/form-data">
                     <input type="hidden" name="r" value="doeditapartament">
                     <input type="hidden" name="ID_Apartament" value="<?= $apartament["ID_Apartament"]; ?>">
                     <div class="col-md-6">
@@ -29,8 +29,8 @@
                         <input type="text" name="descripcion" class="form-control" value="<?= $apartament["Descripcio"]; ?>">
                     </div>
                     <div class="col-12">
-                        <label for="imagenes" class="form-label">Imágenes del Apartamento</label>
-                        <input class="form-control" type="file" name="imagenes" multiple>
+                        <label for="images" class="form-label">Imágenes del Apartamento</label>
+                        <input class="form-control" type="file" name="images[]" multiple>
                         <small class="form-text text-muted">Arrastra y suelta las imágenes aquí o haz clic para seleccionarlas.</small>
                     </div>
                     <div class="col-md-6">
@@ -38,7 +38,7 @@
                         <input type="text" name="metros" class="form-control" value="<?= $apartament["Metres_Cuadrats"]; ?>">
                     </div>
                     <div class="col-md-6">
-                        <label for "habitaciones" class="form-label">Número de Habitaciones</label>
+                        <label for ="habitaciones" class="form-label">Número de Habitaciones</label>
                         <input type="number" name="habitaciones" class="form-control" value="<?= $apartament["N_Habitacions"]; ?>">
                     </div>
                     <div class="col-12">
@@ -53,11 +53,24 @@
                         <label for="cancelacion" class="form-label">Días de Cancelación</label>
                         <input type="text" name="cancelacion" class="form-control" value="<?= $apartament["Dies_Cancelacio"]; ?>">
                     </div>
+                    <div class="col-12">
+                        <label for="servicios" class="form-label">Servicios</label>
+                        <?php
+                        foreach ($serv as $service) {
+                            echo '<div class="form-check form-check-inline col-md-3 flex-wrap align-items-center" >';
+                            echo '<input class="form-check-input" type="checkbox"  name="servicesSelected[]" id="servicesSelected' . $service["ID_Servei"] . '" value="servicesSelected' . $service["ID_Servei"] . '">';
+                            echo '<label class="form-check-label" for="servicesSelected' . $service["ID_Servei"] . '">';
+                            echo $service["Nom_Servei"];
+                            echo '</label>';
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
                     <button type="submit" class="btn btn-primary custom-btn">Continuar</button>
+                    <a href="index.php?r=gestioapartament" class="btn btn-primary custom-btn">Cancelar</a>
                 </form>
-                <a href="index.php?r=gestioapartament">
-                    <button class="custom-btn" type="submit">Cancelar</button>
-                </a>
+
+               
             </div>
         </div>
     </div>
