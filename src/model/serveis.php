@@ -34,6 +34,6 @@ class Serveis {
 
     public function delete($ID_servei) {
         $stm = $this->sql->prepare('UPDATE serveis SET deleted = 1 WHERE ID_Servei = :ID_Servei;');
-        $result = $stm->execute([':ID_Servei' => $ID_Servei]);
+        $result = $stm->execute([':ID_Servei' => $ID_servei]);
     }
 }

@@ -8,16 +8,21 @@ function ctrlIndex($request, $response, $container){
 
 
     $apartamentModel = $container->apartaments();
+    $imageModel = $container->images();
+
     $apartamentData = $apartamentModel->getApartamentosImages();
-    $apartamentRandom = $apartamentModel->getApartamentosRandom();
+    $imageRandom = $imageModel->getImatgesRandom();
     
     $response->set("apartaments",$apartamentData);
-    $response->set("apartamentRandom",$apartamentRandom);
+    $response->set("imageRandom",$imageRandom);
 
 
     $logged = $request->get("SESSION","logged");
+    $tipo="";
+    $response->set("tipo",$tipo);
 
     $response->set("logged",$logged);
+    $response->set("user",$logged);
     $response->setTemplate("index.php");
 
     

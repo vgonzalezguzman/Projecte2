@@ -11,16 +11,23 @@ class Reservas {
     }
 
 
-    public function getReservas()
+    public function getReservasUsuari($ID_Usuari)
     {
-        $reservas = array();
+        $query = "SELECT r.id_reserva, r.DataInici, r.DataFinal, r.preu, r.EstatReserva, r.TempsCancelacio, a.ID_Apartament, a.Titol, a.Adr_Postal, a.Descripcio, a.Metres_Cuadrats, a.N_Habitacions, a.Preu_TBaixa, a.Preu_TAlt, a.Dies_Cancelacio, img.Img_Apartament FROM reservas r JOIN apartament a ON r.ID_Apartament = a.ID_Apartament LEFT JOIN ( SELECT ID_Apartament, GROUP_CONCAT(URL SEPARATOR ', ') AS Img_Apartament FROM img_apartament GROUP BY ID_Apartament ) img ON img.ID_Apartament = a.ID_Apartament WHERE r.ID_Usuari = :ID_Usuari;";
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([
+            'ID_Usuari' => $ID_Usuari
+        ]);
+        $reservas = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $reservas;
+    }
+
+    public function getReservasPis()
+    {
         $query = "SELECT * FROM reservas";
         $stm = $this->sql->prepare($query);
         $stm->execute();
-
-        while ($reservas = $stm->fetch(\PDO::FETCH_ASSOC)) {
-            $reservas[] = $reserva;
-        }
+        $reservas = $stm->fetch(\PDO::FETCH_ASSOC);
         return $reservas;
     }
 

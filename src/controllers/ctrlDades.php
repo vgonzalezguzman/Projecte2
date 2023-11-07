@@ -8,6 +8,8 @@ function ctrlDadesView($request,$response,$container)
 
     $response->set("dades", $userdata);     // creamos dades y guardamos la info en esa variable
 
+    $logged = $request->get("SESSION","logged");
+    $response->set("logged",$logged);
     $response->setTemplate("dades.php");
 
     

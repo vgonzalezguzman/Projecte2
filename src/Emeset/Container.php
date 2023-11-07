@@ -62,15 +62,30 @@ class Container
         return new \Daw\Apartaments($this->sql);
     }
 
-    public function Img_apartament()
+    public function images()
     {
         return new \Daw\Img_apartament($this->sql);
-    }   
-
+    }
+    public function reservas()
+    {
+        return new \Daw\Reservas($this->sql);
+    }
     public function Serveis()
     {
         return new \Daw\Serveis($this->sql);
     }
+    public function temporada()
+    {
+        return new \Daw\Temporada($this->sql);
+    }
+    public function disponibilitat()
+    {
+        return new \Daw\Disponibilitat($this->sql);
+    }
+    public function Img_apartament()
+    {
+        return new \Daw\Img_apartament($this->sql);
+    }   
 
     public function Serveis_apartament()
     {

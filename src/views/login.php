@@ -28,6 +28,7 @@
         }
     </style>
 </head>
+<?php require "loginButton.php"; ?>    
 
 <body>
     <div class="container mt-5">
