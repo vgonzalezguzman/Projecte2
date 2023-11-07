@@ -32,28 +32,31 @@ function ctrlDoApartament($request, $response, $container){
        $userModel4->addApartamentosServicios($lastApartamentId,str_ireplace("servicesSelected",'',$service));   
      }
 
-  
+     $destinationFolder = '../public/img/';
+     $destinationimg = '../../img/';
+     $rutaImg = $destinationimg . $lastApartamentId . "/";
+     $rutaBase = $destinationFolder . $lastApartamentId . "/";
 
     if (isset($_FILES['images']) && !empty($_FILES['images']['name'][0])) {
         $images = $_FILES['images'];
 
         foreach ($images['name'] as $key => $image_name) {
+            $rutaCompleta = $rutaImg . $image_name;
             //var_dump([$userModel2, $lastApartamentId, $image_name]);
-            $userModel2 = $userModel2->addApartamentosImages($lastApartamentId, $image_name);
+            $userModel2 = $userModel2->addApartamentosImages($lastApartamentId, $rutaCompleta);
         }
         echo "Todas las imágenes se han subido correctamente.";
     } else {
         echo "No se han subido imágenes.";
     }
 
-    $destinationFolder = '../public/img/';
-    $rutaCompleta = $destinationFolder . $lastApartamentId . "/";
+   
 
-    if (mkdir($rutaCompleta, 0750, true)) {
+    if (mkdir($rutaBase, 0750, true)) {
         foreach ($_FILES["images"]["tmp_name"] as $key => $tmp_name) {
             //var_dump([$key]);
-            $nombreArchivo = $key . ".png";
-            $ruta = $rutaCompleta . $nombreArchivo;
+            $nombreArchivo = $_FILES["images"]["name"][$key];
+            $ruta = $rutaBase . $nombreArchivo;
             move_uploaded_file($tmp_name, $ruta);
     }
 }
