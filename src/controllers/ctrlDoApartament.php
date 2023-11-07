@@ -4,9 +4,6 @@
 
 function ctrlDoApartament($request, $response, $container){
 
-
-
-
     $title = $request->get(INPUT_POST, "title");
     $postal = $request->get(INPUT_POST, "postal");
     $descripcion = $request->get(INPUT_POST, "descripcion");

@@ -40,8 +40,8 @@ class Img_apartament {
     }
     
 
-    public function delete($ID_Imatge) {
-        $stm = $this->sql->prepare('UPDATE img_apartament SET deleted = 1 WHERE ID_Imatge = :ID_Imatge;');
-        $result = $stm->execute([':ID_Imatge' => $ID_Imatge]);
+    public function delete_img($id_apartament) {
+        $stm = $this->sql->prepare('DELETE FROM img_apartament WHERE ID_Apartament = :id_apartament;');
+        $result = $stm->execute([':id_apartament' => $id_apartament]);
     }
 }

@@ -32,9 +32,10 @@ class Serveis_apartament {
     }
     
 
-    public function delete($ID_servei) {
-        $stm = $this->sql->prepare('UPDATE serveis SET deleted = 1 WHERE ID_Servei = :ID_Servei;');
-        $result = $stm->execute([':ID_Servei' => $ID_Servei]);
+    public function delete_serveis($id_apartament) {
+        $stm = $this->sql->prepare('DELETE FROM apartamentserveis WHERE ID_Apartament = :id_apartament;');
+        $result = $stm->execute([
+            ':id_apartament' => $id_apartament]);
     }
 
     public function addApartamentosServicios($lastApartamentId, $id_servei){
