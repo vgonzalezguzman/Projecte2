@@ -72,4 +72,9 @@ class Container
         return new \Daw\Serveis($this->sql);
     }
 
+    public function Serveis_apartament()
+    {
+        return new \Daw\Serveis_apartament($this->sql);
+    }
+
 }

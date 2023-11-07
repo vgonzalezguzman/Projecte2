@@ -76,15 +76,7 @@ class Apartaments {
        return $this;
     }
 
-    public function addApartamentosServicios($lastApartamentId, $id_servei){
-        $insertStmt = $this->sql->prepare('INSERT INTO apartamentserveis (ID_Apartament, ID_Servei) VALUES (:lastApartamentId, :id_servei)');
-        $result = $insertStmt->execute([
-            ':lastApartamentId' => $lastApartamentId,
-            ':id_servei' => $id_servei,
-            
-        ]);
-      return $this;
-    }
+   
     public function delete($ID_Apartament) {
         $stm = $this->sql->prepare('UPDATE apartament SET deleted = 1 WHERE ID_Apartament = :ID_Apartament;');
         $result = $stm->execute([':ID_Apartament' => $ID_Apartament]);

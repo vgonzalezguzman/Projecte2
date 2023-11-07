@@ -15,40 +15,24 @@ function ctrlDoApartament($request, $response, $container){
     $TBaja = $request->get(INPUT_POST, "TBaja");
     $TALT = $request->get(INPUT_POST, "TALT");
     $cancelacion = $request->get(INPUT_POST, "cancelacion");
-    $servicesSelected =$request->get(INPUT_POST, "servicesSelected");//  $_POST["servicesSelected"]; //
+    $servicesSelected =$_POST["servicesSelected"];  //$request->get(INPUT_POST, "servicesSelected");//  c //
    
     $userModel = $container->Apartaments();
     $userModel2 = $container->Apartaments();
     $userModel3 = $container->Apartaments();
-    $userModel4 = $container->Apartaments();
-
+    $userModel4 = $container->Serveis_apartament();
+  
 
     $ID_Usuari = $_SESSION["user"]["ID_Usuari"];
 
     $userModel = $userModel->addapartament( $title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $ID_Usuari);
     $lastApartamentId = $userModel3->getLastId($ID_Usuari);
-    var_dump($servicesSelected);
-    echo "control 1";
-  
-    foreach ($servicesSelected as $option) {
-        echo "control 2";
-        $arrServices[] = $option; // Array de servicios seleccionados [1, 2, 3
-        echo $option;
-        //$userModel4 = $userModel4->addApartamentosServicios($lastApartamentId, $arrServices);
-        
-    }
-    echo "control 3";
 
-    // var_dump($servicesSelected);
-    // if (is_array($servicesSelected) ) {
-    //     foreach ($servicesSelected as $id_servei){
-    //         $userModel4 = $userModel4->addApartamentosServicios($lastApartamentId, $id_servei);
-    //     }
-    //     } else {
-    //         echo "No se han seleccionado servicios";
-            
-    
-    //     }
+    foreach($servicesSelected as $service){
+       $userModel4->addApartamentosServicios($lastApartamentId,str_ireplace("servicesSelected",'',$service));   
+     }
+
+  
 
     if (isset($_FILES['images']) && !empty($_FILES['images']['name'][0])) {
         $images = $_FILES['images'];
@@ -77,11 +61,11 @@ function ctrlDoApartament($request, $response, $container){
 
 
 
-    //  if ($userModel2) {
-    //      $response->redirect("location: index.php");
-    //  } else {
-    //      $response->redirect("location: index.php");
-    //  }
+      if ($userModel2) {
+          $response->redirect("location: index.php");
+      } else {
+          $response->redirect("location: index.php");
+      }
     return $response;
 
 }

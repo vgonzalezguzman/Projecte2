@@ -15,6 +15,7 @@
 
 
 include "../src/model/serveis.php";
+include "../src/model/Serveis_apartament.php";
 include "../src/model/Users.php";
 include "../src/model/Apartament.php";
 include "../src/model/Img_apartament.php";
