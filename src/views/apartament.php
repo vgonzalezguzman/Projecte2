@@ -8,7 +8,13 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Register</title>
-
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+    <script src="../../js/app.js" defer > </script>
+    <script>
+      
+    </script>
     <style>
         .custom-form {
             background-color: #f5f5f5;
@@ -65,10 +71,22 @@
                         <label for="pass" class="form-label">Precio de temporada baja</label>
                         <input type="int" name="TBaja" class="form-control" id="TBaja">
                     </div>
+                    <div class="mb-3">
+                        <label for="from">From</label>
+                        <input type="text" id="from" name="iniciTB">
+                        <label for="to">to</label>
+                        <input type="text" id="to" name="finalTB">
+                    </div>
 
                     <div class="mb-3">
                         <label for="pass" class="form-label">Precio de temporada Alta</label>
                         <input type="int" name="TALT" class="form-control" id="TALT">
+                    </div>
+                    <div class="mb-3">
+                        <label for="from">From</label>
+                        <input type="text" id="from2" name="iniciTA">
+                        <label for="to">to</label>
+                        <input type="text" id="to2" name="finalTA">
                     </div>
 
                     <div class="mb-3">
