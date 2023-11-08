@@ -64,6 +64,30 @@ $( function() {
       from2.datepicker( "option", "maxDate", getDate( this ) );
     });
  
+    from3 = $( "#from3" )
+    .datepicker({
+    
+      dateFormat: 'yy-mm-dd',
+      minDate: -1,
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1
+    })
+    .on( "change", function() {
+      to3.datepicker( "option", "minDate", getDate( this ) );
+    }),
+  to3 = $( "#to3" ).datepicker({
+    
+      dateFormat: 'yy-mm-dd',
+      minDate: -1,
+    defaultDate: "+1w",
+    changeMonth: true,
+    numberOfMonths: 1
+  })
+  .on( "change", function() {
+    from3.datepicker( "option", "maxDate", getDate( this ) );
+  });
+
     function getDate( element ) {
       var date;
       try {

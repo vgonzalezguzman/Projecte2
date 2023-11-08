@@ -37,9 +37,9 @@ class Apartaments {
         return $result;
     }
 
-    public function addapartament($title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion ,$ID_Usuari, $direccion) {
+    public function addapartament($title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion ,$ID_Usuari, $Carrer) {
         // Si el título no está registrado, procede con la inserción
-        $insertStmt = $this->sql->prepare('INSERT INTO apartament (Titol, Adr_Postal, Descripcio, Metres_Cuadrats, N_Habitacions, Preu_TBaixa, Preu_Talt, Dies_Cancelacio, ID_Usuari, Carrer) VALUES (:title, :postal, :descripcion, :metros, :habitaciones, :TBaja, :TALT, :cancelacion, :ID_Usuari, :direccion)');
+        $insertStmt = $this->sql->prepare('INSERT INTO apartament (Titol, Adr_Postal, Descripcio, Metres_Cuadrats, N_Habitacions, Preu_TBaixa, Preu_Talt, Dies_Cancelacio, ID_Usuari, Carrer) VALUES (:title, :postal, :descripcion, :metros, :habitaciones, :TBaja, :TALT, :cancelacion, :ID_Usuari, :Carrer)');
         $result = $insertStmt->execute([
             ':title' => $title,
             ':postal' => $postal,
@@ -50,7 +50,7 @@ class Apartaments {
             ':TALT' => $TALT,
             ':cancelacion' => $cancelacion,
             ':ID_Usuari' => $ID_Usuari,
-            ':direccion' => $direccion,
+            ':Carrer' => $Carrer
         ]);
         
     }
