@@ -12,12 +12,17 @@ function ctrlDoApartament($request, $response, $container){
     $TBaja = $request->get(INPUT_POST, "TBaja");
     $TALT = $request->get(INPUT_POST, "TALT");
     $cancelacion = $request->get(INPUT_POST, "cancelacion");
-    $servicesSelected =$_POST["servicesSelected"];  //$request->get(INPUT_POST, "servicesSelected");//  c //
-   
+    $servicesSelected =$_POST["servicesSelected"];  //$request->get(INPUT_POST, "servicesSelected");
+    $iniciTA = $request->get(INPUT_POST, "iniciTA");
+    $finalTA = $request->get(INPUT_POST, "finalTA");
+    $iniciTB = $request->get(INPUT_POST, "iniciTB");
+    $finalTB = $request->get(INPUT_POST, "finalTB");
+
     $userModel = $container->Apartaments();
     $userModel2 = $container->Apartaments();
     $userModel3 = $container->Apartaments();
     $userModel4 = $container->Serveis_apartament();
+    $userModel5 = $container->Temporada();
   
 
     $ID_Usuari = $_SESSION["user"]["ID_Usuari"];
@@ -58,14 +63,15 @@ function ctrlDoApartament($request, $response, $container){
     }
 }
 
+    $userModel5->addTemporada($iniciTB, $finalTB, "Temporada Baja", $lastApartamentId);
+    $userModel5->addTemporada($iniciTA, $finalTA, "Temporada Alta", $lastApartamentId);
 
 
-
-      if ($userModel2) {
-          $response->redirect("location: index.php");
-      } else {
-          $response->redirect("location: index.php");
-      }
+       if ($userModel2) {
+           $response->redirect("location: index.php");
+       } else {
+           $response->redirect("location: index.php");
+       }
     return $response;
 
 }
