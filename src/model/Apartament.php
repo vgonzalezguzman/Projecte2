@@ -18,6 +18,33 @@ class Apartaments {
         return $result;
     }
 
+    public function getReservasGestor($ID_Usuari)
+    {
+        $stm = $this->sql->prepare("SELECT a.*, r.*, u.*, SUBSTRING_INDEX(GROUP_CONCAT(i.URL), ',', 1) AS img_url FROM apartament a LEFT JOIN reservas r ON a.ID_Apartament = r.ID_Apartament LEFT JOIN img_apartament i ON a.ID_Apartament = i.ID_Apartament LEFT JOIN usuari u ON r.ID_Usuari = u.ID_Usuari WHERE a.ID_Usuari = :ID_Usuari GROUP BY a.ID_Apartament, r.id_reserva;");
+        $stm->execute([
+            'ID_Usuari' => $ID_Usuari
+        ]);
+        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function confirmReservation($ID_Reserva) {
+        $stm = $this->sql->prepare("UPDATE `reservas` SET `EstatReserva` = 'CONFIRMAT' WHERE `reservas`.`id_reserva` = :ID_Reserva;");
+        $stm->execute([
+            'ID_Reserva' => $ID_Reserva
+        ]);
+        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function cancelReservation($ID_Reserva) {
+        $stm = $this->sql->prepare("UPDATE `reservas` SET `EstatReserva` = 'CANCELAT' WHERE `reservas`.`id_reserva` = :ID_Reserva;");
+        $stm->execute([
+            'ID_Reserva' => $ID_Reserva
+        ]);
+        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
     
     public function getLastId($ID_Usuari){
         $stm = $this->sql->prepare("SELECT MAX(ID_Apartament) AS last_id, ID_Usuari FROM apartament;");
