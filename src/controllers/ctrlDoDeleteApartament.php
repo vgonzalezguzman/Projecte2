@@ -7,8 +7,10 @@ function ctrlDoDeleteApartament($request, $response, $container) {
     $apartamentModel = $container->apartaments();
     $img_ApartamentModel = $container->Img_apartament();
     $serveis_ApartamentModel = $container->serveis_apartament();
+    $temporadaModel = $container->temporada();
 
     // Llama a la función para editar el apartamento con los datos del formulario
+    $temporadaModel->deleteTemporada($ID_Apartament);
     $img_ApartamentModel->delete_img($ID_Apartament);
     $serveis_ApartamentModel->delete_serveis($ID_Apartament);
     $apartamentModel->delete($ID_Apartament);

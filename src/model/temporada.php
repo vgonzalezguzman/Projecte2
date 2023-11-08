@@ -36,8 +36,8 @@ class Temporada {
     }
     
 
-    public function delete($ID_Temporada) {
-        $stm = $this->sql->prepare('UPDATE Temporada SET deleted = 1 WHERE ID_Temporada = :ID_Temporada;');
-        $result = $stm->execute([':ID_Temporada' => $ID_Temporada]);
+    public function deleteTemporada($ID_Apartament) {
+        $stm = $this->sql->prepare('DELETE FROM temporada WHERE ID_Apartament = :ID_Apartament;');
+        $result = $stm->execute([':ID_Apartament' => $ID_Apartament]);
     }
 }
