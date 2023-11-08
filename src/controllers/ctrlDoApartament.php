@@ -17,7 +17,7 @@ function ctrlDoApartament($request, $response, $container){
     $finalTA = $request->get(INPUT_POST, "finalTA");
     $iniciTB = $request->get(INPUT_POST, "iniciTB");
     $finalTB = $request->get(INPUT_POST, "finalTB");
-    $direccion = $request->get(INPUT_POST, "direccion");
+    $Carrer = $request->get(INPUT_POST, "Carrer");
 
 
     $userModel = $container->Apartaments();
@@ -29,7 +29,7 @@ function ctrlDoApartament($request, $response, $container){
 
     $ID_Usuari = $_SESSION["user"]["ID_Usuari"];
 
-    $userModel = $userModel->addapartament( $title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $ID_Usuari, $direccion);
+    $userModel = $userModel->addapartament( $title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $ID_Usuari, $Carrer);
     $lastApartamentId = $userModel3->getLastId($ID_Usuari);
 
     foreach($servicesSelected as $service){
