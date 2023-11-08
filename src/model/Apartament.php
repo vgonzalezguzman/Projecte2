@@ -17,10 +17,26 @@ class Apartaments {
         $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
         return $result;
     }
+    public function getNameApartamentosReservados() {
+        $stm = $this->sql->prepare("SELECT DISTINCT a.Titol, a.ID_Apartament FROM apartament a LEFT JOIN reservas r ON a.ID_Apartament = r.ID_Apartament;");
+        $stm->execute();
+        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
 
     public function getReservasGestor($ID_Usuari)
     {
         $stm = $this->sql->prepare("SELECT a.*, r.*, u.*, SUBSTRING_INDEX(GROUP_CONCAT(i.URL), ',', 1) AS img_url FROM apartament a LEFT JOIN reservas r ON a.ID_Apartament = r.ID_Apartament LEFT JOIN img_apartament i ON a.ID_Apartament = i.ID_Apartament LEFT JOIN usuari u ON r.ID_Usuari = u.ID_Usuari WHERE a.ID_Usuari = :ID_Usuari GROUP BY a.ID_Apartament, r.id_reserva;");
+        $stm->execute([
+            'ID_Usuari' => $ID_Usuari
+        ]);
+        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getReservasGestorIDApartament($ID_Usuari,$ID_Apartament)
+    {
+        $stm = $this->sql->prepare("SELECT a.*, r.*, u.*, SUBSTRING_INDEX(GROUP_CONCAT(i.URL), ',', 1) AS img_url FROM apartament a LEFT JOIN reservas r ON a.ID_Apartament = r.ID_Apartament LEFT JOIN img_apartament i ON a.ID_Apartament = i.ID_Apartament LEFT JOIN usuari u ON r.ID_Usuari = u.ID_Usuari WHERE a.ID_Usuari = 16 AND r.ID_Apartament = 22 GROUP BY a.ID_Apartament, r.id_reserva;");
         $stm->execute([
             'ID_Usuari' => $ID_Usuari
         ]);

@@ -20,6 +20,10 @@ function ctrlReservesGestor($request,  $response,$container){
     
     $response->set("reservesGestor",$reservasGestor);
 
+    $nomApartamentsReservats = $apartamentModel->getNameApartamentosReservados();
+
+    $response->set("nomApartament",$nomApartamentsReservats);
+
 
     $response->setTemplate("viewReservaGestor.php");
 

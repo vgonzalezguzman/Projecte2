@@ -25,6 +25,8 @@
  include "../src/controllers/ctrlDoDeleteApartament.php";
  include "../src/controllers/ctrlViewReservasUsuari.php";
  include "../src/controllers/ctrlReservesGestor.php";
+ include "../src/controllers/ctrlReservesGestorDefault.php";
+ include "../src/controllers/ctrlReservesGestorPis.php";
  include "../src/controllers/ctrlConfirmarReserva.php";
  include "../src/controllers/ctrlCancelarReserva.php";
 
@@ -113,6 +115,12 @@ elseif ($r == "llistaReservaUsuari") {
 elseif ($r == "gestioReserves") {
   $response = Gestor ($request, $response, $container, "ctrlReservesGestor");
 }
+elseif ($r == "gestioReservesDefault") {
+  $response = Gestor ($request, $response, $container, "ctrlReservesGestorDefault");
+} 
+elseif ($r == "gestioReservesPis") {
+  $response = Gestor ($request, $response, $container, "ctrlReservesGestorPis");
+} 
 elseif ($r == "confirmReservation") {
   $response = Gestor ($request, $response, $container, "ctrlConfirmarReserva");
 }
