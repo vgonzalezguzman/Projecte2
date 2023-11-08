@@ -25,6 +25,10 @@
                         <input type="text" name="postal" class="form-control" value="<?= $apartament["Adr_Postal"]; ?>">
                     </div>
                     <div class="col-12">
+                        <label for="direccion" class="form-label">Direccion</label>
+                        <input type="text" name="Carrer" class="form-control" value="<?= $apartament["Carrer"]; ?>">
+                    </div>
+                    <div class="col-12">
                         <label for="descripcion" class="form-label">Descripción</label>
                         <input type="text" name="descripcion" class="form-control" value="<?= $apartament["Descripcio"]; ?>">
                     </div>

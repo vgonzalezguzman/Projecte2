@@ -37,42 +37,51 @@
                     <input type="hidden" name="r" value="doaddapartament">
 
                     <div class="mb-3">
-                        <label for="name" class="form-label">Titulo</label>
+                        <label class="form-label">Titulo</label>
                         <input type="text" name="title" class="form-control" id="title">
                     </div>
 
                     <div class="mb-3">
-                        <label for="lastname" class="form-label">Codigo Postal</label>
-                        <input type="int" name="postal" class="form-control" id="postal">
+                        <label class="form-label">Direccion</label>
+                        <input type="text" name="Carrer" class="form-control" id="direccion">
                     </div>
 
                     <div class="mb-3">
-                        <label for="email" class="form-label">Descripcion</label>
+                        <label class="form-label">Descripcion</label>
                         <input type="text" name="descripcion" class="form-control" id="descripcion">
                     </div>
 
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Metros cuadrados</label>
-                        <input type="text" name="metros" class="form-control" id="metros">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="cardnumber" class="form-label">Número de Habitaciones</label>
+                        <label class="form-label">Número de Habitaciones</label>
                         <input type="number" name="habitaciones" class="form-control" id="habitaciones">
                     </div>
 
                     <div class="mb-3">
-                        <label for="pass" class="form-label">Precio de temporada baja</label>
+                        <label  class="form-label">Codigo Postal</label>
+                        <input type="int" name="postal" class="form-control" id="postal">
+                    </div>
+
+                    
+
+                    <div class="mb-3">
+                        <label  class="form-label">Metros cuadrados</label>
+                        <input type="text" name="metros" class="form-control" id="metros">
+                    </div>
+
+                    
+
+                    <div class="mb-3">
+                        <label class="form-label">Precio de temporada baja</label>
                         <input type="int" name="TBaja" class="form-control" id="TBaja">
                     </div>
 
                     <div class="mb-3">
-                        <label for="pass" class="form-label">Precio de temporada Alta</label>
+                        <label class="form-label">Precio de temporada Alta</label>
                         <input type="int" name="TALT" class="form-control" id="TALT">
                     </div>
 
                     <div class="mb-3">
-                        <label for="pass" class="form-label">Dias de Cancelacion</label>
+                        <label  class="form-label">Dias de Cancelacion</label>
                         <input type="int" name="cancelacion" class="form-control" id="cancelacion">
                     </div>  
                     <div class="mb-3">
