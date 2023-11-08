@@ -3,7 +3,7 @@
 // de Users.php
 
 function ctrlDoApartament($request, $response, $container){
-
+    
     $title = $request->get(INPUT_POST, "title");
     $postal = $request->get(INPUT_POST, "postal");
     $descripcion = $request->get(INPUT_POST, "descripcion");
@@ -17,6 +17,8 @@ function ctrlDoApartament($request, $response, $container){
     $finalTA = $request->get(INPUT_POST, "finalTA");
     $iniciTB = $request->get(INPUT_POST, "iniciTB");
     $finalTB = $request->get(INPUT_POST, "finalTB");
+    $direccion = $request->get(INPUT_POST, "direccion");
+
 
     $userModel = $container->Apartaments();
     $userModel2 = $container->Apartaments();
@@ -27,7 +29,7 @@ function ctrlDoApartament($request, $response, $container){
 
     $ID_Usuari = $_SESSION["user"]["ID_Usuari"];
 
-    $userModel = $userModel->addapartament( $title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $ID_Usuari);
+    $userModel = $userModel->addapartament( $title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $ID_Usuari, $direccion);
     $lastApartamentId = $userModel3->getLastId($ID_Usuari);
 
     foreach($servicesSelected as $service){
