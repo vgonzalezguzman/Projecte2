@@ -144,16 +144,16 @@ else { ?>
                                 <?php
                                 if ($tipo == "") {
                                 ?>
-                                    <div class="calendar">
-                                        <label for="start">Desde:</label>
-                                        <input type="date" id="start">
-                                    </div>
-                                    <div class="calendar">
-                                        <label for="end">Hasta:</label>
-                                        <input type="date" id="end">
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="from3">Desde</label>
+                                    <input type="text" id="from3" name="iniciTB">
+                                    <label for="to3">Hasta</label>
+                                    <input type="text" id="to3" name="finalTB">
+                                
+                                
 
-                                    <button class="fechas">Buscar</button>
+                                    <button type="submit" class="fechas">Buscar</button>
+                                    </div>
 
                                     <label for="guests">Número de personas:</label>
                                     <input type="number" id="guests" name="guests" min="1" max="6" placeholder="Número de personas">
