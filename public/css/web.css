@@ -6,6 +6,20 @@ body{
     height: 30vh;
     overflow: hidden;
 }
+
+.carousel-item{
+  width: 100%;
+  height: 250px;
+}
+.carousel-item img{
+  max-width: 100%;
+}
+
+.card-img-top{
+  height: 300px;
+  object-fit: cover;
+}
+
 #mostraCases .portadaCasa img  {
     object-fit: cover;
     object-position: center;

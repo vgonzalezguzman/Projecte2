@@ -21,6 +21,7 @@ function ctrlDoApartament($request, $response, $container){
     $lat = $request->get(INPUT_POST, "lat");
     $lon = $request->get(INPUT_POST, "lon");
 
+    
 
     $userModel = $container->Apartaments();
     $userModel2 = $container->Apartaments();
@@ -28,12 +29,16 @@ function ctrlDoApartament($request, $response, $container){
     $userModel4 = $container->Serveis_apartament();
     $userModel5 = $container->Temporada();
   
+    
 
     $ID_Usuari = $_SESSION["user"]["ID_Usuari"];
 
     $userModel = $userModel->addapartament( $title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $ID_Usuari, $Carrer, $lat, $lon);
     $lastApartamentId = $userModel3->getLastId($ID_Usuari);
 
+    $userModel5->addTemporada($iniciTB, $finalTB, "Temporada Baja", $lastApartamentId);
+    $userModel5->addTemporada($iniciTA, $finalTA, "Temporada Alta", $lastApartamentId);
+    var_dump($iniciTA, $finalTA, $iniciTB, $finalTB, $lastApartamentId);
     foreach($servicesSelected as $service){
        $userModel4->addApartamentosServicios($lastApartamentId,str_ireplace("servicesSelected",'',$service));   
      }
@@ -67,8 +72,6 @@ function ctrlDoApartament($request, $response, $container){
     }
 }
 
-    $userModel5->addTemporada($iniciTB, $finalTB, "Temporada Baja", $lastApartamentId);
-    $userModel5->addTemporada($iniciTA, $finalTA, "Temporada Alta", $lastApartamentId);
 
 
        if ($userModel2) {
