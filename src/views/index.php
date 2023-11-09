@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="../../css/web.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <link href="../../css/web.css" rel="stylesheet"> 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
     <script src="../../js/app.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-
+<div class="logo">
+    <img  src="../../images/logo2.jpg" alt="logo">
+</div>
 <?php require "loginButton.php"; ?>    
 
     <div class="d-flex d-none d-sm-flex justify-content-center">
@@ -46,7 +48,7 @@
     </div>
 
     <div class="container-fluid p5 text-center d-flex justify-content-center">
-        <div class="col-xl-4 col-8">
+        <div class="">
         <form class="form">
       <button>
           <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">

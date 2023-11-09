@@ -13,7 +13,8 @@ function ctrlDoEditApartament($request, $response, $container) {
     $TALT = $request->get(INPUT_POST, "TALT");
     $cancelacion = $request->get(INPUT_POST, "cancelacion");
     $Carrer = $request->get(INPUT_POST,"Carrer");
-    $servicesSelected =$_POST["servicesSelected"];  //$request->get(INPUT_POST, "servicesSelected");//  c //
+    $servicesSelected =$_POST["servicesSelected"];  //$request->get(INPUT_POST, "servicesSelected");
+   
 
     // Llama a la función para editar el apartamento con los datos del formulario
     $apartamentModel = $container->apartaments();
@@ -22,8 +23,10 @@ function ctrlDoEditApartament($request, $response, $container) {
     $img_apartamentModelD = $container->Img_apartament();
     $img_apartamentModelA = $container->Img_apartament();
     $userModel2 = $container->Apartaments();
+   
 
     $apartamentModel->EditApartamentById($ID_Apartament, $titol, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $Carrer);
+   
     $serveisModelD->delete_serveis($ID_Apartament);
     foreach($servicesSelected as $service){
         $serveisModelA->addApartamentosServicios($ID_Apartament,str_ireplace("servicesSelected",'',$service));   

@@ -35,9 +35,23 @@ class Temporada {
         ]);
     }
     
-
+    public function editTemporada($d_inici, $d_final, $Nom_temporada, $id_apartament) {
+        $stm = $this->sql->prepare('UPDATE temporada SET 
+            D_Inici = :d_inici, 
+            D_final = :d_final
+            WHERE ID_Apartament = :id_apartament AND Nom_temporada = :nom_temporada');
+        $result = $stm->execute([
+            ':d_inici' => $d_inici,
+            ':d_final' => $d_final,
+            ':nom_temporada' => $Nom_temporada,
+            ':id_apartament' => $id_apartament,
+        ]);
+    }
+    
     public function deleteTemporada($ID_Apartament) {
-        $stm = $this->sql->prepare('DELETE FROM temporada WHERE ID_Apartament = :ID_Apartament;');
+        $stm = $this->sql->prepare('DELETE FROM temporada WHERE ID_Apartament = :ID_Apartament');
         $result = $stm->execute([':ID_Apartament' => $ID_Apartament]);
     }
+
+  
 }
