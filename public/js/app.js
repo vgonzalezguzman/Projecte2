@@ -1,27 +1,7 @@
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     const startDateInput = document.getElementById('start');
-//     const endDateInput = document.getElementById('end');
 
-//     // Escuchar cambios en las fechas
-//     startDateInput.addEventListener('change', () => {
-//         const startDate = new Date(startDateInput.value);
-//         const endDate = new Date(endDateInput.value);
 
-//         if (startDate > endDate) {
-//             endDateInput.value = startDateInput.value;
-//         }
-//     });
-
-//     endDateInput.addEventListener('change', () => {
-//         const startDate = new Date(startDateInput.value);
-//         const endDate = new Date(endDateInput.value);
-
-//         if (endDate < startDate) {
-//             startDateInput.value = endDateInput.value;
-//         }
-//     });
-// });
+// calelendari
 
 $( function() {
     var dateFormat = "mm/dd/yy",
@@ -101,6 +81,9 @@ $( function() {
   } );
 
 
+//cookies alert
+
+
   if (!localStorage.getItem('cookieAlertShown')) {
     // Mostrar la alerta
     document.write('<div class="alert alert-dismissible alert-danger position-fixed bottom-0 start-50 translate-middle-x" style="width: 80%; z-index: 1000;" role="alert">\
@@ -111,3 +94,12 @@ $( function() {
     // Marcar que la alerta ha sido mostrada
     localStorage.setItem('cookieAlertShown', 'true');
 }
+
+
+// mapa
+
+// var map = L.map('map').setView([42.2664500, 2.9616300], 13);
+// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//     maxZoom: 19,
+//     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+// }).addTo(map);
