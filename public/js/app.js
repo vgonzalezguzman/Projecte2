@@ -98,8 +98,12 @@ $( function() {
 
 // mapa
 
-// var map = L.map('map').setView([42.2664500, 2.9616300], 13);
-// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//     maxZoom: 19,
-//     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-// }).addTo(map);
+var map = L.map('map').setView([42.2664500, 2.9616300], 13);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+var marker =L.marker([apartament.Latitud, apartament.Longitud]).addTo(map);
+
+setTimeout(function () { map.invalidateSize() }, 300);
