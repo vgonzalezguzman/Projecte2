@@ -99,3 +99,15 @@ $( function() {
       return date;
     }
   } );
+
+
+  if (!localStorage.getItem('cookieAlertShown')) {
+    // Mostrar la alerta
+    document.write('<div class="alert alert-dismissible alert-danger position-fixed bottom-0 start-50 translate-middle-x" style="width: 80%; z-index: 1000;" role="alert">\
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>\
+                        <strong>Nota:</strong> Este sitio web utiliza cookies para mejorar la experiencia del usuario.\
+                    </div>');
+
+    // Marcar que la alerta ha sido mostrada
+    localStorage.setItem('cookieAlertShown', 'true');
+}
