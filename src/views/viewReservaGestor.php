@@ -9,22 +9,28 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/app.js" defer></script>
 </head>
 <?php require "loginButton.php"; ?>
 
 <body>
-    <p class="titol">Reserves als teus apartaments</p>
     <div class="container">
-        <form>
-        <select name="pisos" id="pisosSelect">
-            <option value="">Selecciona un pis:</option>
+    <p class="titol">Reserves als teus apartaments</p>
+    <p>Filtres</p>
+        <form class="d-inline-block">
+            <select name="pisos" id="pisosSelect">
+                <option value="">Selecciona un pis:</option>
                 <?php foreach ($nomApartament as $nom) { ?>
                     <option value="<?php echo $nom["ID_Apartament"]; ?>"><?php echo $nom["Titol"]; ?></option>
                 <?php } ?>
             </select>
+            <select name="arrendatari" id="arrendatariSelect">
+                <option value="">Selecciona un arrendatari:</option>
+                <?php foreach ($arrendatari as $nom) { ?>
+                    <option value="<?php echo $nom["ID_Usuari"]; ?>"><?php echo $nom["Nom_Usuari"]; ?></option>
+                <?php } ?>
+            </select>
         </form>
-        <div class="row" id="apartament-list">
+        <div class="row col-12" id="apartament-list">
             <?php foreach ($reservesGestor as $apartamento) : ?>
                 <div class="col-md-4">
                     <div class="card mb-4">
@@ -63,6 +69,7 @@
         </div>
     </div>
 
+    <script src="../../js/gestioApartaments.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </body>

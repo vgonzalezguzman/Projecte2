@@ -11,6 +11,9 @@ function ctrlReservesGestor($request,  $response,$container){
 
     $userdata = $userModel->getAll($_SESSION["user"]["ID_Usuari"]);  
 
+    $arrendatari = $userModel->getUsuariQueReserva();
+    $response->set("arrendatari",$arrendatari);
+
     $userID = $userdata["ID_Usuari"];
 
 

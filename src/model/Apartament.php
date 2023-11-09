@@ -36,14 +36,38 @@ class Apartaments {
 
     public function getReservasGestorIDApartament($ID_Usuari,$ID_Apartament)
     {
-        $stm = $this->sql->prepare("SELECT a.*, r.*, u.*, SUBSTRING_INDEX(GROUP_CONCAT(i.URL), ',', 1) AS img_url FROM apartament a LEFT JOIN reservas r ON a.ID_Apartament = r.ID_Apartament LEFT JOIN img_apartament i ON a.ID_Apartament = i.ID_Apartament LEFT JOIN usuari u ON r.ID_Usuari = u.ID_Usuari WHERE a.ID_Usuari = 16 AND r.ID_Apartament = 22 GROUP BY a.ID_Apartament, r.id_reserva;");
+        $stm = $this->sql->prepare("SELECT a.*, r.*, u.*, SUBSTRING_INDEX(GROUP_CONCAT(i.URL), ',', 1) AS img_url FROM apartament a LEFT JOIN reservas r ON a.ID_Apartament = r.ID_Apartament LEFT JOIN img_apartament i ON a.ID_Apartament = i.ID_Apartament LEFT JOIN usuari u ON r.ID_Usuari = u.ID_Usuari WHERE a.ID_Usuari = :ID_Usuari AND r.ID_Apartament = :ID_Apartament GROUP BY a.ID_Apartament, r.id_reserva;");
         $stm->execute([
-            'ID_Usuari' => $ID_Usuari
+            'ID_Usuari' => $ID_Usuari,
+            'ID_Apartament' => $ID_Apartament
         ]);
         $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
         return $result;
     }
 
+    public function getReservaGestorIDArrendatari($ID_Usuari,$ID_Apartament,$ID_Arrendatari) 
+    {
+        $stm = $this->sql->prepare("SELECT a.*, r.*, u.*, SUBSTRING_INDEX(GROUP_CONCAT(i.URL), ',', 1) AS img_url FROM apartament a LEFT JOIN reservas r ON a.ID_Apartament = r.ID_Apartament LEFT JOIN img_apartament i ON a.ID_Apartament = i.ID_Apartament LEFT JOIN usuari u ON r.ID_Usuari = u.ID_Usuari WHERE a.ID_Usuari = :ID_Usuari AND r.ID_Apartament = :ID_Apartament AND r.ID_Usuari = :ID_Arrendatari GROUP BY a.ID_Apartament, r.id_reserva;");
+        $stm->execute([
+            'ID_Usuari' => $ID_Usuari,
+            'ID_Apartament' => $ID_Apartament,
+            'ID_Arrendatari' => $ID_Arrendatari
+        ]);
+        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getReservaGestorNomesArrendatari($ID_Usuari, $ID_Arrendatari) 
+        {
+            $stm = $this->sql->prepare("SELECT a.*, r.*, u.*, SUBSTRING_INDEX(GROUP_CONCAT(i.URL), ',', 1) AS img_url FROM apartament a LEFT JOIN reservas r ON a.ID_Apartament = r.ID_Apartament LEFT JOIN img_apartament i ON a.ID_Apartament = i.ID_Apartament LEFT JOIN usuari u ON r.ID_Usuari = u.ID_Usuari WHERE a.ID_Usuari = :ID_Usuari AND r.ID_Usuari = :ID_Arrendatari GROUP BY a.ID_Apartament, r.id_reserva;");
+            $stm->execute([
+                'ID_Usuari' => $ID_Usuari,
+                'ID_Arrendatari' => $ID_Arrendatari
+            ]);
+            $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        }
+    
     public function confirmReservation($ID_Reserva) {
         $stm = $this->sql->prepare("UPDATE `reservas` SET `EstatReserva` = 'CONFIRMAT' WHERE `reservas`.`id_reserva` = :ID_Reserva;");
         $stm->execute([

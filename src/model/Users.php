@@ -21,6 +21,15 @@ class Users {
             false;
         }
     }
+    
+    public function getUsuariQueReserva() 
+    {
+        $stm = $this->sql->prepare("SELECT DISTINCT u.ID_Usuari, CONCAT(u.Nom, ' ', u.Cognoms) AS Nom_Usuari FROM usuari u LEFT JOIN reservas r ON u.ID_Usuari = r.ID_Usuari;");
+        $stm->execute();
+        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+    
     public function updateUser($ID_Usuari, $name, $lastname, $phone, $email, $pass) {
         $sql = 'UPDATE usuari 
                 SET Nom = :name, Cognoms = :lastname, Telefon = :phone, Email = :email, pass = :pass
