@@ -24,6 +24,10 @@
  include "../src/controllers/ctrlDoEditApartament.php";
  include "../src/controllers/ctrlDoDeleteApartament.php";
  include "../src/controllers/ctrlViewReservasUsuari.php";
+ include "../src/controllers/ctrlReservesGestor.php";
+ include "../src/controllers/ctrlReservesGestorPis.php";
+ include "../src/controllers/ctrlConfirmarReserva.php";
+ include "../src/controllers/ctrlCancelarReserva.php";
 
 
 
@@ -106,6 +110,18 @@ elseif($r == "dodeleteapartament") {
 }
 elseif ($r == "llistaReservaUsuari") {
   $response = isLogged ($request, $response, $container, "ctrlViewReservasUsuari");
+}
+elseif ($r == "gestioReserves") {
+  $response = Gestor ($request, $response, $container, "ctrlReservesGestor");
+}
+elseif ($r == "gestioReservesPis") {
+  $response = Gestor ($request, $response, $container, "ctrlReservesGestorPis");
+} 
+elseif ($r == "confirmReservation") {
+  $response = Gestor ($request, $response, $container, "ctrlConfirmarReserva");
+}
+elseif ($r == "cancelReservation") {
+  $response = Gestor ($request, $response, $container, "ctrlCancelarReserva");
 }
 else {
      echo "No existeix la ruta";
