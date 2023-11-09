@@ -30,7 +30,7 @@ class Users {
         return $result;
     }
     
-    public function updateUser($ID_Usuari, $name, $lastname, $phone, $email, $pass) {
+    public function updateUser($ID_Usuari, $name, $lastname, $phone, $email, $cardnumber, $pass) {
         $sql = 'UPDATE usuari 
                 SET Nom = :name, Cognoms = :lastname, Telefon = :phone, Email = :email, Tarjeta = :cardnumber, pass = :pass
                 WHERE ID_Usuari = :ID_Usuari';

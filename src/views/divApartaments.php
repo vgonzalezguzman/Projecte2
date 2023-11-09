@@ -10,8 +10,6 @@ if ($apartaments == NULL) {
         $urlsArray = explode(', ',  $value['Img_Apartament']);
         $carouselType = 0;
     ?>
-<<<<<<< HEAD
-
         <div class=" d-flex mt-5 flex-column col  rounded-4 p-0 align-items-center justify-content-center">
             <div class="card  ms-0  col-11 min-height-400">
                 <div id="pis<?php $id ?>_small" class="portadaCasa col-12 carousel slide">
@@ -46,13 +44,6 @@ if ($apartaments == NULL) {
                     </button>
                 </div>
                 <div class="card-body" data-bs-toggle="modal" data-bs-target="#modalPis<?php $id ?>">
-=======
-        <div class="d-flex mt-5 flex-column col rounded-4 p-0 align-items-center justify-content-center">
-            <div class="card ms-0 col-11 min-height-400">
-                <!-- Muestra la primera imagen del apartamento en la tarjeta -->
-                <img src="<?= reset($urlsArray) ?>" class="card-img-top" alt="Imagen del apartamento">
-                <div class="card-body" data-bs-toggle="modal" data-bs-target="#modalPis<?= $id ?>">
->>>>>>> de703a02dd94e22913189113e27372cfdef390ed
                     <div class="d-flex row p-3">
                         <p id="title" class="col-12">
                             <?php echo $value['Titol']; ?>
@@ -125,8 +116,6 @@ if ($apartaments == NULL) {
     }
     ?>
 </div>
-<<<<<<< HEAD
-=======
 
 <div class="modal fade" id="reservaModal" tabindex="-1" role="dialog" aria-labelledby="reservaModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable custom-dialog">
@@ -174,7 +163,6 @@ if ($apartaments == NULL) {
         </div>
     </div>
 </div>
->>>>>>> de703a02dd94e22913189113e27372cfdef390ed
 <?php
 }
 ?> 
