@@ -545,3 +545,5 @@ input:not(:placeholder-shown) ~ .reset {
   }
   
 }
+
+.map { height: 180px; }
