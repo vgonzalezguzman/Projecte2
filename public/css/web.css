@@ -95,15 +95,16 @@ body{
   transition: all .3s ease-in-out;
 }
 .btn-primary{
-  background-color: transparent;
-  border-color: gray;
+ background-color: rgb(181, 147, 212);
+  border-color:transparent;
   height: 50px;
 }
 
 
 .btn-primary p{
   margin-top: 4px;
-  color: black;
+  color: rgb(109, 28, 28);
+  background-color: rgb(92, 92, 92);
  
 }
 

@@ -15,36 +15,32 @@
 <div class="logo">
     <img  src="../../images/logo2.jpg" alt="logo">
 </div>
+
+
 <?php require "loginButton.php"; ?>    
 
+
     <div class="d-flex d-none d-sm-flex justify-content-center">
-        <div id="carouselMostrari" class="col-8 carousel slide">
-            <?php
-                foreach ($imageRandom as $url) {
-                    if ($carouselType == 0) {
-                        echo 
-                        '<div class="carousel-item active">
-                            <img src="'.$url['URL'].'" class="d-block w-100" alt="...">
-                        </div>';
-
-                    } else {
-                        echo
-                        '<div class="carousel-item">
-                            <img src="'.$url['URL'].'" class="d-block w-100" alt="...">
-                        </div>';
-
-                    }
-                }
-            ?>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMostrari" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselMostrari" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-        </div>
+    <div id="carouselMostrari" class="col-8 carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <?php
+            foreach ($imageRandom as $index => $url) {
+                $activeClass = $index === 0 ? 'active' : ''; // Añade la clase 'active' al primer elemento
+                echo '<div class="carousel-item ' . $activeClass . '">
+                        <img src="'.$url['URL'].'" class="d-block w-100" alt="...">
+                      </div>';
+            }
+        ?>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselMostrari" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselMostrari" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+    </button>
+</div>
     </div>
 
     <div class="container-fluid p5 text-center d-flex justify-content-center">

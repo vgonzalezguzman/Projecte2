@@ -266,7 +266,7 @@ button{
 
         <label>
             <input required="" placeholder="" type="file" name="images[]" multiple class="input">
-            <span>Añadir imagenes</span>
+        
         </label>
     </div>
     <div class="mb-3">

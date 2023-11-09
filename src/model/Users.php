@@ -21,9 +21,9 @@ class Users {
             false;
         }
     }
-    public function updateUser($ID_Usuari, $name, $lastname, $phone, $email, $pass) {
+    public function updateUser($ID_Usuari, $name, $lastname, $phone, $email, $cardnumber, $pass) {
         $sql = 'UPDATE usuari 
-                SET Nom = :name, Cognoms = :lastname, Telefon = :phone, Email = :email, pass = :pass
+                SET Nom = :name, Cognoms = :lastname, Telefon = :phone, Email = :email, Tarjeta = :cardnumber, pass = :pass
                 WHERE ID_Usuari = :ID_Usuari';
     
         $stm = $this->sql->prepare($sql);
@@ -33,6 +33,7 @@ class Users {
             ':lastname' => $lastname,
             ':phone' => $phone,
             ':email' => $email,
+            ':cardnumber' => $cardnumber,
             ':pass' => $pass
         ]);
     }
