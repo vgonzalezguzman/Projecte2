@@ -99,7 +99,7 @@ class Apartaments {
                     Preu_TAlt = :TALT, 
                     Dies_Cancelacio = :cancelacion,
                     Carrer = :Carrer
-                WHERE ID_Apartament = :ID_Apartament';
+                WHERE ID_Apartament = :ID_Apartament' ;
         
         $stm = $this->sql->prepare($sql);
         $stm->execute([

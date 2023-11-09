@@ -10,71 +10,186 @@
     <title>Register</title>
     <?php require "loginButton.php"; ?>   
     <style>
-        body{
-            background-color: #f5f5f5;
-        }
-        .custom-form {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
+           .form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 
-        .custom-btn {
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-        }
+}
 
-        .custom-btn:hover {
-            background-color: #0056b3;
-        }
+.title {
+  font-size: 28px;
+  color: red;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.title::before,.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: red;
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+  background-color: red;
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.message, .signin {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 14px;
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a {
+  color: red;
+}
+
+.signin a:hover {
+  text-decoration: underline red;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: grey;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,.form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form label .input:valid + span {
+  color: green;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  background-color: red;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: .3s ease;
+}
+
+.submit:hover {
+  background-color: rgb(56, 90, 194);
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:auto;
+    margin-top: 5%;
+}
     </style>
 </head>
 
 <body>
-    <div class="container mt-5">
-        <h1>Afegir Usuari</h1>
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <form action="index.php" method="post" class="custom-form">
-                    <input type="hidden" name="r" value="doregister">
+<container>
+<form action="index.php" method="post" class="form">
+<input type="hidden" name="r" value="doregister">
+    <p class="title">Añadir usuario</p>
+    <p class="message"></p>
+        <div class="flex">
+        <label>
+            <input required="" placeholder="" type="text" name="n" class="input">
+            <span>Nombre</span>
+        </label>
 
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Nombre<span class="text-danger"> *</span></label>
-                        <input type="text" name="n" class="form-control" id="name" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="lastname" class="form-label">Apellidos<span class="text-danger"> *</span></label>
-                        <input type="text" name="lastname" class="form-control" id="lastname" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Correo Electrónico<span class="text-danger"> *</span></label>
-                        <input type="email" name="email" class="form-control" id="email" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Teléfono<span class="text-danger"> *</span></label>
-                        <input type="tel" name="phone" class="form-control" id="phone" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="cardnumber" class="form-label">Número de Tarjeta de Crédito<span class="text-danger"> *</span></label>
-                        <input type="number" name="cardnumber" class="form-control" id="cardnumber" required> 
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="pass" class="form-label">Contraseña<span class="text-danger"> *</span></label>
-                        <input type="password" name="pass" class="form-control" id="pass" required>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary custom-btn">Continuar</button>
-                </form>
-            </div>
-        </div>
-    </div>
+        <label>
+            <input required="" placeholder="" name="lastname" type="text" class="input">
+            <span>Apellidos</span>
+        </label>
+    </div>  
+            
+    <label>
+        <input required="" placeholder="" name="email" type="email" class="input">
+        <span>Email</span>
+    </label> 
+    <label>
+        <input required="" placeholder="" name="phone" type="tel" class="input">
+        <span>Teléfono</span>
+    </label> 
+    <label>
+        <input required="" placeholder="" name="cardnumber" type="cardnumber" class="input">
+        <span>Tarjeta de crédito</span>
+    </label> 
+    <label>
+        <input required="" placeholder="" name="pass" type="password" class="input">
+        <span>Contraseña</span>
+    </label>
+    <button class="submit">Añadir</button>
+</form>
+            </container>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> 
 </body>
