@@ -34,7 +34,7 @@
             <?php foreach ($reservesGestor as $apartamento) : ?>
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <img src="<?php $apartamento["img_url"] ?>" class="card-img-top" alt="Imagen del apartamento">
+                        <img src="<?= $apartamento["img_url"]; ?>" class="card-img-top" alt="Imagen del apartamento">
                         <div class="card-body">
                             <h5 class="card-title"><?= $apartamento["Titol"]; ?></h5>
                             <p class="card-text"><?= $apartamento["Descripcio"]; ?></p>
