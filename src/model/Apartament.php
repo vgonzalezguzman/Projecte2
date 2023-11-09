@@ -104,9 +104,9 @@ class Apartaments {
         return $result;
     }
 
-    public function addapartament($title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion ,$ID_Usuari, $Carrer) {
+    public function addapartament($title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion ,$ID_Usuari, $Carrer, $lat, $lon) {
         // Si el título no está registrado, procede con la inserción
-        $insertStmt = $this->sql->prepare('INSERT INTO apartament (Titol, Adr_Postal, Descripcio, Metres_Cuadrats, N_Habitacions, Preu_TBaixa, Preu_Talt, Dies_Cancelacio, ID_Usuari, Carrer) VALUES (:title, :postal, :descripcion, :metros, :habitaciones, :TBaja, :TALT, :cancelacion, :ID_Usuari, :Carrer)');
+        $insertStmt = $this->sql->prepare('INSERT INTO apartament (Titol, Adr_Postal, Descripcio, Metres_Cuadrats, N_Habitacions, Preu_TBaixa, Preu_Talt, Dies_Cancelacio, ID_Usuari, Carrer, Latitud, Longitud) VALUES (:title, :postal, :descripcion, :metros, :habitaciones, :TBaja, :TALT, :cancelacion, :ID_Usuari, :Carrer, :lat, :lon)');
         $result = $insertStmt->execute([
             ':title' => $title,
             ':postal' => $postal,
@@ -117,7 +117,9 @@ class Apartaments {
             ':TALT' => $TALT,
             ':cancelacion' => $cancelacion,
             ':ID_Usuari' => $ID_Usuari,
-            ':Carrer' => $Carrer
+            ':Carrer' => $Carrer,
+            ':lat' => $lat,
+            ':lon' => $lon
         ]);
         
     }
@@ -155,7 +157,7 @@ class Apartaments {
         return $result;
     }
 
-    public function EditApartamentById($ID_Apartament, $title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $Carrer) {
+    public function EditApartamentById($ID_Apartament, $title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $Carrer, $lat, $lon) {
         $sql = 'UPDATE apartament 
                 SET Titol = :title, 
                     Adr_Postal = :postal, 
@@ -165,7 +167,9 @@ class Apartaments {
                     Preu_TBaixa = :TBaja, 
                     Preu_TAlt = :TALT, 
                     Dies_Cancelacio = :cancelacion,
-                    Carrer = :Carrer
+                    Carrer = :Carrer,
+                    Latitud = :lat,
+                    Longitud = :lon
                 WHERE ID_Apartament = :ID_Apartament' ;
         
         $stm = $this->sql->prepare($sql);
@@ -179,7 +183,9 @@ class Apartaments {
             ':TBaja' => $TBaja,
             ':TALT' => $TALT,
             ':cancelacion' => $cancelacion,
-            ':Carrer' => $Carrer
+            ':Carrer' => $Carrer,
+            ':lat' => $lat,
+            ':lon' => $lon
         ]);
     }
     

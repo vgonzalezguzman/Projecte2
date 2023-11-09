@@ -223,6 +223,17 @@ button{
     </div> 
     <div class="flex">
         <label>
+            <input required="" placeholder="" type="text"  name="lat" class="input">
+            <span>Latitud</span>
+        </label>
+
+        <label>
+            <input required="" placeholder="" name="lon" type="text" class="input">
+            <span>Longitud</span>
+        </label>
+    </div>
+    <div class="flex">
+        <label>
             <input required="" placeholder="" type="text"  name="habitaciones" class="input">
             <span>Número de habitaciones</span>
         </label>
