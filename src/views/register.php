@@ -180,7 +180,7 @@ container{
         <span>Teléfono</span>
     </label> 
     <label>
-        <input required="" placeholder="" name="cardnumber" type="cardnumber" class="input">
+        <input required="" placeholder="" name="cardnumber" type="cardnumber" aria-label="cardnumber" class="input">
         <span>Tarjeta de crédito</span>
     </label> 
     <label>

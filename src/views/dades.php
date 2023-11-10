@@ -145,6 +145,10 @@ container{
     width:auto;
     margin-top: 5%;
 }
+
+button{
+  background-color:  #767676;
+}
     </style>
 </head>
 <body>
@@ -175,7 +179,7 @@ container{
         <span>Teléfono</span>
     </label> 
     <label>
-        <input required="" placeholder="" name="cardnumber" type="cardnumber" value="<?=$dades["Tarjeta"];?>" class="input">
+        <input required="" placeholder="" name="cardnumber" aria-label="cardnumber" type="cardnumber" value="<?=$dades["Tarjeta"];?>" class="input">
         <span>Tarjeta de crédito</span>
     </label> 
     <label>

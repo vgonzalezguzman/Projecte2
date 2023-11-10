@@ -251,9 +251,9 @@ button{
         </div>
         <div class="precio">
             <label for="from">Desde</label>
-            <input type="text" id="from2" class="input" name="iniciTA">
+            <input type="text" id="from2" title="iniciTA" class="input" name="iniciTA">
             <label for="to">Hasta</label>
-            <input type="text" id="to2" class="input"name="finalTA">
+            <input type="text" id="to2" title="finalTA" class="input"name="finalTA">
       
     </div>  
     <div class="flex" id="preciodiv">
