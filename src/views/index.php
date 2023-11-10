@@ -49,7 +49,6 @@
 
     <div class="container-fluid p5 text-center d-flex justify-content-center">
         <div class="">
-<<<<<<< HEAD
         <form class="form">
       <button>
           <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
@@ -78,49 +77,6 @@
     <div class="calendar">
         <label for="start">Desde:</label>
         <input type="date" id="start">
-=======
-            <form class="form">
-                <button aria-label="Searchbar">
-                    <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
-                        <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                </button>
-                <input class="input" placeholder="Search" required="" type="text" aria-label="Text field searchbar">
-                <button class="reset" type="reset" aria-label="reset">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </form>
-
-        </div>
-        <div class="btn-group">
-            <button type="button" id="dropdown_menu" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="option dropdown">
-                <div class="container_menu">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </div>
-            </button>
-            <div class="dropdown-menu">
-                <h5>Buscar destinos</h5>
-                <div class="calendar">
-                    <label for="start">Desde:</label>
-                    <input type="date" id="start">
-                </div>
-                <div class="calendar">
-                    <label for="end">Hasta:</label>
-                    <input type="date" id="end">
-                </div>
-                <label for="guests">Número de personas:</label>
-                <input type="number" id="guests" name="guests" min="1" max="6" placeholder="Número de personas">
-                <label for="guests">Número de habitaciones:</label>
-                <input type="number" id="guests" name="guests" min="1" max="6" placeholder="Número de personas">
-
-
-            </div>
-        </div>
->>>>>>> ULTIMOS-CAMBIOS
     </div>
     <div class="calendar">
         <label for="end">Hasta:</label>
