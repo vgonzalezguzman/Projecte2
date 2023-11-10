@@ -7,14 +7,13 @@ function ctrlDoDades($request, $response, $container) {
     $lastname = $request->get(INPUT_POST, "lastname");
     $phone = $request->get(INPUT_POST, "phone");
     $mail = $request->get(INPUT_POST, "email");
-    $pass = $request->get(INPUT_POST, "pass");
-    $cardnumber = $request->get(INPUT_POST, "cardnumber");
+    $pass = $request->get(INPUT_POST, "password");
 
     $userModel = $container->Users();
     
     $ID_Usuari = $_SESSION["user"]["ID_Usuari"];
 
-    $userModel = $userModel->updateUser($ID_Usuari, $user, $lastname, $phone, $mail, $cardnumber, $pass);
+    $userModel = $userModel->updateUser($ID_Usuari, $user, $lastname, $phone, $mail, $pass);
 
     $response->redirect("location: index.php?r=dades");
 

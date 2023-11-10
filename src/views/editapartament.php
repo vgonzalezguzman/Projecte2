@@ -228,17 +228,6 @@ a{
     </div> 
     <div class="flex">
         <label>
-            <input required="" placeholder="" type="text"  name="lat" class="input" value="<?= $apartament["Latitud"]; ?>">
-            <span>Latitud</span>
-        </label>
-
-        <label>
-            <input required="" placeholder="" name="lon" type="text" class="input"  value="<?= $apartament["Longitud"]; ?>">
-            <span>Longitud</span>
-        </label>
-    </div>
-    <div class="flex">
-        <label>
             <input required="" placeholder="" type="text"  name="habitaciones" class="input" value="<?= $apartament["N_Habitacions"]; ?>">
             <span>Número de habitaciones</span>
         </label>
