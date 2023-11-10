@@ -139,7 +139,7 @@
   }
 }
 
-container{
+.container{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,7 +154,11 @@ button{
 </head>
 <body>
 <?php require "loginButton.php"; ?>    
-
+<container>
+  <form action="index.php" method="post" class="form">
+  <input type="hidden" name="r" value="dodades">
+  <p class="title">Editar dades</p>
+  <div class="flex">
         <label>
             <input required="" placeholder="" name="lastname" value="<?=$dades["Cognoms"];?>"  type="text" class="input">
             <span>Apellidos</span>
