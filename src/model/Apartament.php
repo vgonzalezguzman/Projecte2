@@ -12,8 +12,7 @@ class Apartaments {
 
     public function getApartamentosImages()
     {
-        $stm = $this->sql->prepare("SELECT a.*, ( SELECT GROUP_CONCAT(i.URL SEPARATOR ', ') FROM img_apartament i WHERE i.ID_Apartament = a.ID_Apartament ) AS Img_Apartament FROM apartament a;");
-        $stm->execute();
+        $stm = $this->sql->prepare("SELECT a.*,(SELECT GROUP_CONCAT(i.URL SEPARATOR ', ') FROM img_apartament i WHERE i.ID_Apartament = a.ID_Apartament) AS Img_Apartament, (SELECT GROUP_CONCAT(s.Nom_Servei SEPARATOR ', ') FROM serveis s INNER JOIN apartamentserveis aserv ON s.ID_Servei = aserv.ID_Servei WHERE aserv.ID_Apartament = a.ID_Apartament) AS Servicios FROM apartament a;");        $stm->execute();
         $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
         return $result;
     }

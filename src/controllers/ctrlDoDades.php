@@ -7,7 +7,7 @@ function ctrlDoDades($request, $response, $container) {
     $lastname = $request->get(INPUT_POST, "lastname");
     $phone = $request->get(INPUT_POST, "phone");
     $mail = $request->get(INPUT_POST, "email");
-    $pass = $request->get(INPUT_POST, "password");
+    $pass = $request->get(INPUT_POST, "pass");
     $cardnumber = $request->get(INPUT_POST, "cardnumber");
 
     $userModel = $container->Users();
