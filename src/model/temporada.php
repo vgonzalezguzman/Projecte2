@@ -53,5 +53,14 @@ class Temporada {
         $result = $stm->execute([':ID_Apartament' => $ID_Apartament]);
     }
 
+    public function getTemporadaByID($ID_Apartament) {
+        $query = "SELECT * FROM temporada WHERE ID_Apartament = :id";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([':id' => $ID_Apartament]);
+        $temporadas = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $temporadas;
+    }
+    
+
   
 }
