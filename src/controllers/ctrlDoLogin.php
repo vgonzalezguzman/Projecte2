@@ -14,9 +14,11 @@ function ctrlDoLogin($request, $response, $container){
         $response->setSession("logged", true);
         $response->redirect("location: index.php");
     } else {
+        $response->setSession("loginError", "Usuario o contraseña incorrectos");
         $response->redirect("location: index.php?r=login");
     }
 
+    
     return $response;
 }
 

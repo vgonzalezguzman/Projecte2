@@ -240,9 +240,9 @@ button{
         </div>
         <div class="precio">
         <label for="from">Desde</label>
-        <input type="text" id="from2" class="input" name="iniciTA" autocomplete="off">
+        <input type="text" id="from2" class="input" title="iniciTA" name="iniciTA" autocomplete="off">
         <label for="to">Hasta</label>
-        <input type="text" id="to2" class="input" name="finalTA" autocomplete="off">
+        <input type="text" id="to2" class="input" title="finalTA" name="finalTA" autocomplete="off">
 
       
     </div>  

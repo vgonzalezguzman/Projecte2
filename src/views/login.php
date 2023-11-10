@@ -150,12 +150,28 @@ container{
     width:auto;
     margin-top: 6%;
 }
+
+.fixed-bottom {
+        position: fixed;
+        bottom: 10px; /* Puedes ajustar este valor según sea necesario */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000; /* Ajusta el valor del índice z según sea necesario */
+    }
     </style>
+    
 </head>
 <?php require "loginButton.php"; ?>    
 
 <body>
 <container>
+<?php
+
+if (isset($_SESSION["loginError"])) {
+    echo '<div class="alert alert-danger fixed-bottom" role="alert">' . $_SESSION["loginError"] . '</div>';
+    unset($_SESSION["loginError"]); // Limpiar el mensaje de error después de mostrarlo
+}
+?>
 <form action="index.php" method="post" class="form">
 <input type="hidden" name="r" value="dologin">
     <p class="title">Iniciar sesión </p>
@@ -168,10 +184,12 @@ container{
         <input required="" placeholder="" name="pass" type="password" class="input">
         <span>Contraseña</span>
     </label>
+
     <p class="signin">¿Aún no tienes una cuenta? <a href="index.php?r=register">Registrarse</a> </p>
     <button class="submit">Continuar</button>
 </form>
             </container>
+            
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
