@@ -44,10 +44,8 @@ class Reservas {
         ]);
     }
     
-    
-
-    public function delete($ID_Reserva) {
-        $stm = $this->sql->prepare('UPDATE reservas SET deleted = 1 WHERE id_reserva = :ID_Reserva;');
-        $result = $stm->execute([':ID_Reserva' => $ID_Reserva]);
+    public function delete($ID_Apartament) {
+        $stm = $this->sql->prepare('delete from reservas WHERE ID_Apartament = :ID_Apartament;');
+        $result = $stm->execute([':ID_Apartament' => $ID_Apartament]);
     }
 }
