@@ -12,80 +12,12 @@ class Apartaments {
 
     public function getApartamentosImages()
     {
-        $stm = $this->sql->prepare("SELECT a.*, ( SELECT GROUP_CONCAT(i.URL SEPARATOR ', ') FROM img_apartament i WHERE i.ID_Apartament = a.ID_Apartament ) AS Img_Apartament FROM apartament a;");
+        $stm = $this->sql->prepare("SELECT a.*,(SELECT GROUP_CONCAT(i.URL SEPARATOR ', ') FROM img_apartament i WHERE i.ID_Apartament = a.ID_Apartament) AS Img_Apartament, (SELECT GROUP_CONCAT(s.Nom_Servei SEPARATOR ', ') FROM serveis s INNER JOIN apartamentserveis aserv ON s.ID_Servei = aserv.ID_Servei WHERE aserv.ID_Apartament = a.ID_Apartament) AS Servicios FROM apartament a;");
         $stm->execute();
         $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
         return $result;
     }
-    public function getNameApartamentosReservados() {
-        $stm = $this->sql->prepare("SELECT DISTINCT a.Titol, a.ID_Apartament FROM apartament a LEFT JOIN reservas r ON a.ID_Apartament = r.ID_Apartament;");
-        $stm->execute();
-        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
-    }
-
-    public function getReservasGestor($ID_Usuari)
-    {
-        $stm = $this->sql->prepare("SELECT a.*, r.*, u.*, SUBSTRING_INDEX(GROUP_CONCAT(i.URL), ',', 1) AS img_url FROM apartament a LEFT JOIN reservas r ON a.ID_Apartament = r.ID_Apartament LEFT JOIN img_apartament i ON a.ID_Apartament = i.ID_Apartament LEFT JOIN usuari u ON r.ID_Usuari = u.ID_Usuari WHERE a.ID_Usuari = :ID_Usuari GROUP BY a.ID_Apartament, r.id_reserva;");
-        $stm->execute([
-            'ID_Usuari' => $ID_Usuari
-        ]);
-        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
-    }
-
-    public function getReservasGestorIDApartament($ID_Usuari,$ID_Apartament)
-    {
-        $stm = $this->sql->prepare("SELECT a.*, r.*, u.*, SUBSTRING_INDEX(GROUP_CONCAT(i.URL), ',', 1) AS img_url FROM apartament a LEFT JOIN reservas r ON a.ID_Apartament = r.ID_Apartament LEFT JOIN img_apartament i ON a.ID_Apartament = i.ID_Apartament LEFT JOIN usuari u ON r.ID_Usuari = u.ID_Usuari WHERE a.ID_Usuari = :ID_Usuari AND r.ID_Apartament = :ID_Apartament GROUP BY a.ID_Apartament, r.id_reserva;");
-        $stm->execute([
-            'ID_Usuari' => $ID_Usuari,
-            'ID_Apartament' => $ID_Apartament
-        ]);
-        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
-    }
-
-    public function getReservaGestorIDArrendatari($ID_Usuari,$ID_Apartament,$ID_Arrendatari) 
-    {
-        $stm = $this->sql->prepare("SELECT a.*, r.*, u.*, SUBSTRING_INDEX(GROUP_CONCAT(i.URL), ',', 1) AS img_url FROM apartament a LEFT JOIN reservas r ON a.ID_Apartament = r.ID_Apartament LEFT JOIN img_apartament i ON a.ID_Apartament = i.ID_Apartament LEFT JOIN usuari u ON r.ID_Usuari = u.ID_Usuari WHERE a.ID_Usuari = :ID_Usuari AND r.ID_Apartament = :ID_Apartament AND r.ID_Usuari = :ID_Arrendatari GROUP BY a.ID_Apartament, r.id_reserva;");
-        $stm->execute([
-            'ID_Usuari' => $ID_Usuari,
-            'ID_Apartament' => $ID_Apartament,
-            'ID_Arrendatari' => $ID_Arrendatari
-        ]);
-        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
-    }
-
-    public function getReservaGestorNomesArrendatari($ID_Usuari, $ID_Arrendatari) 
-        {
-            $stm = $this->sql->prepare("SELECT a.*, r.*, u.*, SUBSTRING_INDEX(GROUP_CONCAT(i.URL), ',', 1) AS img_url FROM apartament a LEFT JOIN reservas r ON a.ID_Apartament = r.ID_Apartament LEFT JOIN img_apartament i ON a.ID_Apartament = i.ID_Apartament LEFT JOIN usuari u ON r.ID_Usuari = u.ID_Usuari WHERE a.ID_Usuari = :ID_Usuari AND r.ID_Usuari = :ID_Arrendatari GROUP BY a.ID_Apartament, r.id_reserva;");
-            $stm->execute([
-                'ID_Usuari' => $ID_Usuari,
-                'ID_Arrendatari' => $ID_Arrendatari
-            ]);
-            $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
-            return $result;
-        }
-    
-    public function confirmReservation($ID_Reserva) {
-        $stm = $this->sql->prepare("UPDATE `reservas` SET `EstatReserva` = 'CONFIRMAT' WHERE `reservas`.`id_reserva` = :ID_Reserva;");
-        $stm->execute([
-            'ID_Reserva' => $ID_Reserva
-        ]);
-        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
-    }
-
-    public function cancelReservation($ID_Reserva) {
-        $stm = $this->sql->prepare("UPDATE `reservas` SET `EstatReserva` = 'CANCELAT' WHERE `reservas`.`id_reserva` = :ID_Reserva;");
-        $stm->execute([
-            'ID_Reserva' => $ID_Reserva
-        ]);
-        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
-    }
-    
+        
     public function getLastId($ID_Usuari){
         $stm = $this->sql->prepare("SELECT MAX(ID_Apartament) AS last_id, ID_Usuari FROM apartament;");
         $stm->execute();
@@ -104,9 +36,9 @@ class Apartaments {
         return $result;
     }
 
-    public function addapartament($title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion ,$ID_Usuari, $Carrer, $lat, $lon) {
+    public function addapartament($title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion ,$ID_Usuari, $Carrer) {
         // Si el título no está registrado, procede con la inserción
-        $insertStmt = $this->sql->prepare('INSERT INTO apartament (Titol, Adr_Postal, Descripcio, Metres_Cuadrats, N_Habitacions, Preu_TBaixa, Preu_Talt, Dies_Cancelacio, ID_Usuari, Carrer, Latitud, Longitud) VALUES (:title, :postal, :descripcion, :metros, :habitaciones, :TBaja, :TALT, :cancelacion, :ID_Usuari, :Carrer, :lat, :lon)');
+        $insertStmt = $this->sql->prepare('INSERT INTO apartament (Titol, Adr_Postal, Descripcio, Metres_Cuadrats, N_Habitacions, Preu_TBaixa, Preu_Talt, Dies_Cancelacio, ID_Usuari, Carrer) VALUES (:title, :postal, :descripcion, :metros, :habitaciones, :TBaja, :TALT, :cancelacion, :ID_Usuari, :Carrer)');
         $result = $insertStmt->execute([
             ':title' => $title,
             ':postal' => $postal,
@@ -117,9 +49,7 @@ class Apartaments {
             ':TALT' => $TALT,
             ':cancelacion' => $cancelacion,
             ':ID_Usuari' => $ID_Usuari,
-            ':Carrer' => $Carrer,
-            ':lat' => $lat,
-            ':lon' => $lon
+            ':Carrer' => $Carrer
         ]);
         
     }
@@ -151,13 +81,13 @@ class Apartaments {
     }
 
     public function selectApartamentByID($ID_Apartament){
-        $stm = $this->sql->prepare("SELECT * FROM apartament WHERE ID_Apartament = :ID_Apartament;");
+        $stm = $this->sql->prepare("SELECT a.*, ia.URL FROM apartament a LEFT JOIN img_apartament ia ON a.ID_Apartament = ia.ID_Apartament WHERE a.ID_Apartament = :ID_Apartament;");
         $stm->execute(["ID_Apartament"=> $ID_Apartament]);
         $result = $stm->fetch(\PDO::FETCH_ASSOC);
         return $result;
     }
 
-    public function EditApartamentById($ID_Apartament, $title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $Carrer, $lat, $lon) {
+    public function EditApartamentById($ID_Apartament, $title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $Carrer) {
         $sql = 'UPDATE apartament 
                 SET Titol = :title, 
                     Adr_Postal = :postal, 
@@ -167,9 +97,7 @@ class Apartaments {
                     Preu_TBaixa = :TBaja, 
                     Preu_TAlt = :TALT, 
                     Dies_Cancelacio = :cancelacion,
-                    Carrer = :Carrer,
-                    Latitud = :lat,
-                    Longitud = :lon
+                    Carrer = :Carrer
                 WHERE ID_Apartament = :ID_Apartament' ;
         
         $stm = $this->sql->prepare($sql);
@@ -183,9 +111,7 @@ class Apartaments {
             ':TBaja' => $TBaja,
             ':TALT' => $TALT,
             ':cancelacion' => $cancelacion,
-            ':Carrer' => $Carrer,
-            ':lat' => $lat,
-            ':lon' => $lon
+            ':Carrer' => $Carrer
         ]);
     }
     

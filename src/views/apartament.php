@@ -223,17 +223,6 @@ button{
     </div> 
     <div class="flex">
         <label>
-            <input required="" placeholder="" type="text"  name="lat" class="input">
-            <span>Latitud</span>
-        </label>
-
-        <label>
-            <input required="" placeholder="" name="lon" type="text" class="input">
-            <span>Longitud</span>
-        </label>
-    </div>
-    <div class="flex">
-        <label>
             <input required="" placeholder="" type="text"  name="habitaciones" class="input">
             <span>Número de habitaciones</span>
         </label>
@@ -250,10 +239,11 @@ button{
         </label>
         </div>
         <div class="precio">
-            <label for="from">Desde</label>
-            <input type="text" id="from2" title="iniciTA" class="input" name="iniciTA">
-            <label for="to">Hasta</label>
-            <input type="text" id="to2" title="finalTA" class="input"name="finalTA">
+        <label for="from">Desde</label>
+        <input type="text" id="from2" class="input" title="iniciTA" name="iniciTA" autocomplete="off">
+        <label for="to">Hasta</label>
+        <input type="text" id="to2" class="input" title="finalTA" name="finalTA" autocomplete="off">
+
       
     </div>  
     <div class="flex" id="preciodiv">
@@ -264,11 +254,11 @@ button{
         </div>
         <div class="precio">
             <label for="from">Desde</label>
-            <input type="text" id="from" class="input" name="iniciTB">
+            <input type="text" id="from" class="input" name="iniciTB" autocomplete="off">
             <label for="to">Hasta</label>
-            <input type="text" id="to" class="input"name="finalTB">
-        
-    </div>
+            <input type="text" id="to" class="input" name="finalTB" autocomplete="off">
+        </div>
+
     <div class="flex">
         <label>
             <input required="" placeholder="" type="text" name="cancelacion" class="input">
@@ -277,7 +267,7 @@ button{
 
         <label>
             <input required="" placeholder="" type="file" name="images[]" multiple class="input">
-        
+            <span>Añadir imagenes</span>
         </label>
     </div>
     <div class="mb-3">

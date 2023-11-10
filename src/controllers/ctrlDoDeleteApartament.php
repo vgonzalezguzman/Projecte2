@@ -9,10 +9,15 @@ function ctrlDoDeleteApartament($request, $response, $container) {
     $serveis_ApartamentModel = $container->serveis_apartament();
     $temporadaModel = $container->temporada();
 
+    $reservaModel = $container->reservas();
+
+
     // Llama a la función para editar el apartamento con los datos del formulario
     $temporadaModel->deleteTemporada($ID_Apartament);
     $img_ApartamentModel->delete_img($ID_Apartament);
     $serveis_ApartamentModel->delete_serveis($ID_Apartament);
+
+    $reservaModel->delete($ID_Apartament);
     $apartamentModel->delete($ID_Apartament);
 
     $response->redirect("location: index.php?r=gestioapartament");

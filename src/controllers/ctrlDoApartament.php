@@ -18,10 +18,7 @@ function ctrlDoApartament($request, $response, $container){
     $iniciTB = $request->get(INPUT_POST, "iniciTB");
     $finalTB = $request->get(INPUT_POST, "finalTB");
     $Carrer = $request->get(INPUT_POST, "Carrer");
-    $lat = $request->get(INPUT_POST, "lat");
-    $lon = $request->get(INPUT_POST, "lon");
 
-    
 
     $userModel = $container->Apartaments();
     $userModel2 = $container->Apartaments();
@@ -29,16 +26,17 @@ function ctrlDoApartament($request, $response, $container){
     $userModel4 = $container->Serveis_apartament();
     $userModel5 = $container->Temporada();
   
-    
+        // Convertir las fechas a formato inglés
+        $iniciTA = DateTime::createFromFormat('d/m/Y', $iniciTA)->format('Y-m-d');
+        $finalTA = DateTime::createFromFormat('d/m/Y', $finalTA)->format('Y-m-d');
+        $iniciTB = DateTime::createFromFormat('d/m/Y', $iniciTB)->format('Y-m-d');
+        $finalTB = DateTime::createFromFormat('d/m/Y', $finalTB)->format('Y-m-d');        
 
     $ID_Usuari = $_SESSION["user"]["ID_Usuari"];
 
-    $userModel = $userModel->addapartament( $title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $ID_Usuari, $Carrer, $lat, $lon);
+    $userModel = $userModel->addapartament( $title, $postal, $descripcion, $metros, $habitaciones, $TBaja, $TALT, $cancelacion, $ID_Usuari, $Carrer);
     $lastApartamentId = $userModel3->getLastId($ID_Usuari);
 
-    $userModel5->addTemporada($iniciTB, $finalTB, "Temporada Baja", $lastApartamentId);
-    $userModel5->addTemporada($iniciTA, $finalTA, "Temporada Alta", $lastApartamentId);
-    var_dump($iniciTA, $finalTA, $iniciTB, $finalTB, $lastApartamentId);
     foreach($servicesSelected as $service){
        $userModel4->addApartamentosServicios($lastApartamentId,str_ireplace("servicesSelected",'',$service));   
      }
@@ -72,6 +70,8 @@ function ctrlDoApartament($request, $response, $container){
     }
 }
 
+    $userModel5->addTemporada($iniciTB, $finalTB, "Temporada Baja", $lastApartamentId);
+    $userModel5->addTemporada($iniciTA, $finalTA, "Temporada Alta", $lastApartamentId);
 
 
        if ($userModel2) {
