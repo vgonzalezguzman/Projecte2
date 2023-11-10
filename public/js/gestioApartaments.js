@@ -1,6 +1,6 @@
-$(document).ready(function () {
+$(document).ready(function() {
     // Attach a change event listener to the select elements
-    $("#pisosSelect, #arrendatariSelect").on("change", function () {
+    $("#pisosSelect, #arrendatariSelect").on("change", function() {
         // Get the selected values
         var selectedPisoValue = $("#pisosSelect").val();
         var selectedArrendatariValue = $("#arrendatariSelect").val();
@@ -22,12 +22,12 @@ $(document).ready(function () {
         }
 
         // Make the AJAX request
-        $.get(url, requestData, function (data) {
+        $.get(url, requestData, function(data) {
             // Parse the JSON data received
             var jsonData = JSON.parse(data);
 
             // Loop through the JSON data and append it to the "apartament-list" div
-            $.each(jsonData.dadesPisos, function (index, apartamento) {
+            $.each(jsonData.dadesPisos, function(index, apartamento) {
                 console.log(apartamento);
                 var html = createCard(apartamento);
                 $("#apartament-list").append(html);
@@ -36,7 +36,7 @@ $(document).ready(function () {
     });
 });
 
-// Function to create an HTML card for each apartment
+
 function createCard(apartamento) {
     return `
         <div class="col-md-4">
@@ -53,8 +53,8 @@ function createCard(apartamento) {
                     <p class="card-text">Dates: <br>Inici ${apartamento.DataInici} Final ${apartamento.DataFinal}</p>
                 </div>
                 <div class="card-footer justify-content-between">
-                    ${apartamento.EstatReserva === "NO CONFIRMAT" ?
-            `<form action="index.php" method="post">
+                    ${apartamento.EstatReserva === "NO CONFIRMAT" ? 
+                        `<form action="index.php" method="post">
                             <input type="hidden" name="r" value="confirmReservation">
                             <input type="hidden" name="ID_Reserva" value="${apartamento.id_reserva}">
                             <button class="btn btn-success text-start" type="submit">Confirmar reserva</button>
@@ -64,7 +64,7 @@ function createCard(apartamento) {
                             <input type="hidden" name="ID_Reserva" value="${apartamento.id_reserva}">
                             <button class="btn btn-danger text-end" type="submit">Cancelar reserva</button>
                         </form>` :
-            `<div class="">
+                        `<div class="">
                             <p>Tot en ordre!</p>
                         </div>`}
                 </div>

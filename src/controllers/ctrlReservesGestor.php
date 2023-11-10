@@ -1,15 +1,15 @@
 <?php
 // Este controlador sirve para ver la pagina de reserva.php
-function ctrlReservesGestor($request,  $response,$container){    
+function ctrlReservesGestor($request,  $response,$container){
 
     $logged = $request->get("SESSION","logged");
-    
+
     $response->set("logged",$logged);
-    
+
 
     $userModel = $container->users();
 
-    $userdata = $userModel->getAll($_SESSION["user"]["ID_Usuari"]);  
+    $userdata = $userModel->getAll($_SESSION["user"]["ID_Usuari"]);
 
     $arrendatari = $userModel->getUsuariQueReserva();
     $response->set("arrendatari",$arrendatari);
@@ -18,9 +18,9 @@ function ctrlReservesGestor($request,  $response,$container){
 
 
     $apartamentModel = $container->apartaments();
-    
+
     $reservasGestor = $apartamentModel->getReservasGestor($userID);
-    
+
     $response->set("reservesGestor",$reservasGestor);
 
     $nomApartamentsReservats = $apartamentModel->getNameApartamentosReservados();

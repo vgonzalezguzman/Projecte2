@@ -16,7 +16,7 @@ function ctrlReservesGestorPis($request, $response, $container)
 
     $arrendatari = $_GET['arrendatari'];
 
-    
+
     $apartamentModel = $container->apartaments();
 
     $piso = isset($_GET['piso']) ? $_GET['piso'] : null;

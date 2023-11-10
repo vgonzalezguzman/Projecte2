@@ -78,6 +78,14 @@ class Users {
         ]);
    
     }
+
+    public function getUsuariQueReserva() 
+    {
+        $stm = $this->sql->prepare("SELECT DISTINCT u.ID_Usuari, CONCAT(u.Nom, ' ', u.Cognoms) AS Nom_Usuari FROM usuari u LEFT JOIN reservas r ON u.ID_Usuari = r.ID_Usuari;");
+        $stm->execute();
+        $result = $stm->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
+    }
  
 
 }

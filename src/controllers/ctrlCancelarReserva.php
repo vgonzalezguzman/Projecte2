@@ -2,10 +2,10 @@
 // Este controlador transforma los datos del formulario a variables PHP y llama a la función para editar el apartamento.
 
 function ctrlCancelarReserva($request, $response, $container) {
-    
+
 
     $logged = $request->get("SESSION","logged");
-    
+
     $response->set("logged",$logged);
  
     $ID_Reserva = $request->get(INPUT_POST,"ID_Reserva");

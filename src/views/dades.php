@@ -5,46 +5,45 @@
 <head>
     <title>Bienvenido <?=$dades["Nom"];?></title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+       .form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 
-        .custom-form {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px; /* Reducido el padding para hacerlo más pequeño */
-            width: 320px;
-            text-align: center;
-        }
+}
 
-        .custom-input {
-            width: 100%;
-            padding: 8px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+.title {
+  font-size: 28px;
+  color: grey;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
 
-        .custom-btn {
-            background-color: #ff385c;
-            border: none;
-            border-radius: 4px;
-            color: #fff;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
+.title::before,.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: grey;
+}
 
-        .custom-btn:hover {
-            background-color: #d83254;
-        }
+.title::before {
+  width: 18px;
+  height: 18px;
+  background-color: grey;
+}
 
 .title::after {
   width: 18px;
@@ -139,26 +138,28 @@
   }
 }
 
-.container{
+container{
     display: flex;
     justify-content: center;
     align-items: center;
     width:auto;
     margin-top: 5%;
 }
-
-button{
-  background-color:  #767676;
-}
     </style>
 </head>
 <body>
 <?php require "loginButton.php"; ?>    
 <container>
-  <form action="index.php" method="post" class="form">
-  <input type="hidden" name="r" value="dodades">
-  <p class="title">Editar dades</p>
-  <div class="flex">
+<form action="index.php" method="post" class="form">
+<input type="hidden" name="r" value="dodades">
+    <p class="title">¡Bienvenido <?=$dades["Nom"];?>!</p>
+    <p class="message"></p>
+        <div class="flex">
+        <label>
+            <input required="" placeholder="" type="text" name="name" value="<?=$dades["Nom"];?>" class="input">
+            <span>Nombre</span>
+        </label>
+
         <label>
             <input required="" placeholder="" name="lastname" value="<?=$dades["Cognoms"];?>"  type="text" class="input">
             <span>Apellidos</span>
@@ -174,7 +175,7 @@ button{
         <span>Teléfono</span>
     </label> 
     <label>
-        <input required="" placeholder="" name="cardnumber" aria-label="cardnumber" type="cardnumber" value="<?=$dades["Tarjeta"];?>" class="input">
+        <input required="" placeholder="" name="cardnumber" type="cardnumber" value="<?=$dades["Tarjeta"];?>" class="input">
         <span>Tarjeta de crédito</span>
     </label> 
     <label>
